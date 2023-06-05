@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="heading">
+        <p>&#128511; THE NIM GAME!</p>
+    </div>
+
+    <div class="navbar">
+        <a href="./index.html">Home</a>
+        <a href="./rules.html">Rules</a>
+        <a href="./strategies.html">Strategies</a>
+        <a href="./about.html">About</a>
+    </div>
+    <div class="about">
+        <h1>History</h1>
+        <p>
+            Variants of Nim have been played since ancient times. The game is said to have originated in China—it
+            closely resembles the Chinese game of 捡石子 jiǎn-shízi, or "picking stones"—but the origin is uncertain;
+            the earliest European references to Nim are from the beginning of the 16th century. Its current name was
+            coined by Charles L. Bouton of Harvard University, who also developed the complete theory of the game in
+            1901, but the origins of the name were never fully explained. The Oxford English Dictionary derives
+            the name from the German verb nimm meaning take!<br><br>
+            At the 1940 New York World's Fair Westinghouse displayed a machine, the Nimatron, that played Nim. From
+            May 11, 1940, to October 27, 1940, only a few people were able to beat the machine in that six-month
+            period;
+            if they did, they were presented with a coin that said Nim Champ. It was also one of the first-ever
+            electronic computerized games. Ferranti built a Nim playing computer which was displayed at the Festival
+            of
+            Britain in 1951.<br><br> In 1952 Herbert Koppel, Eugene Grant and Howard Bailer, engineers from the W. L.
+            Maxon
+            Corporation, developed a machine weighing 23 kilograms (50 lb) which played Nim against a human opponent
+            and
+            regularly won. A Nim Playing Machine has been described made from TinkerToy.
+        </p>
+
+        <h2>What is NIM?</h2>
+        <p>
+            Nim is a mathematical game of strategy in which two players take turns removing (or "nimming") objects
+            from
+            distinct heaps or piles. On each turn, a player must remove at least one object, and may remove any
+            number
+            of objects provided they all come from the same heap or pile. Depending on the version being played, the
+            goal of the game is either to avoid taking the last object or to take the last object.
+        </p>
+        <h2>Variations of NIM</h2>
+        <div class="container">
+            <nav>
+                <a data-id="1">The subtraction game</a>
+                <a data-id="2">The 21 game</a>
+                <a data-id="3">The 100 game</a>
+                <a data-id="4">A multiple-heap rule</a>
+                <a data-id="5">Circular Nim</a>
+                <a data-id="6">Grundy's game</a>
+                <a data-id="7">Greedy Nim</a>
+                <a data-id="8">Index-k Nim</a>
+                <a data-id="9">Building Nim</a>
+                <a data-id="10">Higher dimensional Nim</a>
+                <a data-id="11">Graph Nim</a>
+                <a data-id="12">Candy Nim</a>
+                <a data-id="13">Wordnim</a>
+            </nav>
+            <main>
+                <div class="active">
+                    <h2>The subtraction game</h2>
+                    <p>
+                        In another game which is commonly known as Nim (but is better called the subtraction game),
+                        an
+                        upper bound is imposed on the number of objects that can be removed in a turn. Instead of
+                        removing arbitrarily many objects, a player can only remove 1 or 2 or ... or k at a time.
+                        This
+                        game is commonly played in practice with only one heap.
+
+                        Bouton's analysis carries over easily to the general multiple-heap version of this game. The
+                        only difference is that as a first step, before computing the Nim-sums we must reduce the
+                        sizes
+                        of the heaps modulo k + 1. If this makes all the heaps of size zero (in misère play),
+                        the
+                        winning move is to take k objects from one of the heaps. In particular, in ideal play from a
+                        single heap of n objects, the second player can win if and only if
+
+                        0 = n (mod k + 1) (in normal play), or
+                        1 = n (mod k + 1) (in misère play).
+                        This follows from calculating the nim-sequence of S(1,2,...,k),
+
+                        0.123…k0123…k0123⋯ = 0.123…k,
+
+                        from which the strategy above follows by the Sprague-Grundy theorem.
+                    </p>
+                </div>
+                <div>
+                    <h2>The 21 game</h2>
+                    <p>
+                        The game "21" is played as a misère game with any number of players who take turns saying a
+                        number. The first player says "1" and each player in turn increases the number by 1, 2, or
+                        3,
+                        but may not exceed 21; the player forced to say "21" loses. This can be modeled as a
+                        subtraction
+                        game with a heap of 21–n objects. The winning strategy for the two-player version of this
+                        game
+                        is to always say a multiple of 4; it is then guaranteed that the other player will
+                        ultimately
+                        have to say 21; so in the standard version, wherein the first player opens with "1", they
+                        start
+                        with a losing move.
+
+                        The 21 game can also be played with different numbers, e.g., "Add at most 5; lose on 34".
+                    </p>
+                </div>
+                <div>
+                    <h2>The 100 game</h2>
+                    <p>
+                        A similar version is the "100 game": Two players start from 0 and alternately add a number from
+                        1 to 10 to the sum. The player who reaches 100 wins. The winning strategy is to reach a
+                        number
+                        in which the digits are subsequent (e.g., 01, 12, 23, 34,...) and control the game by
+                        jumping
+                        through all the numbers of this sequence. Once a player reaches 89, the opponent can only
+                        choose
+                        numbers from 90 to 99, and the next answer can in any case be 100.
+                    </p>
+                </div>
+                <div>
+                    <h2>A multiple-heap rule</h2>
+                    <p>
+                        In another variation of Nim, besides removing any number of objects from a single heap,
+                        one is permitted to remove the same number of objects from each heap.
+                    </p>
+                </div>
+                <div>
+                    <h2>Circular Nim</h2>
+                    <p>
+                        Yet another variation of Nim is 'Circular Nim', where in any number of objects are placed in
+                        a
+                        circle and two players alternately remove one, two or three adjacent objects.
+                    </p>
+                </div>
+                <div>
+                    <h2>Grundy's game</h2>
+                    <p>
+                        In Grundy's game, another variation of Nim, a number of objects are placed in an initial
+                        heap
+                        and two players alternately divide a heap into two nonempty heaps of different sizes. Thus,
+                        six
+                        objects may be divided into piles of 5+1 or 4+2, but not 3+3. Grundy's game can be played as
+                        either misère or normal play.
+                    </p>
+                </div>
+                <div>
+                    <h2>Greedy Nim</h2>
+                    <p>
+                        Greedy Nim is a variation wherein the players are restricted to choosing stones from only the
+                        largest pile. It is a finite impartial game. Greedy Nim Misère has the same rules as Greedy
+                        Nim, but here the last player able to make a move loses.
+
+                        Let the largest number of stones in a pile be m and the second largest number of stones in a
+                        pile be n. Let pm be the number of piles having m stones and pn be the number of piles
+                        having n
+                        stones. Then there is a theorem that game positions with pm even are P positions. This
+                        theorem can be shown by considering the positions where pm is odd. If pm is larger than 1,
+                        all
+                        stones may be removed from this pile to reduce pm by 1 and the new pm will be even. If pm =
+                        1
+                        (i.e. the largest heap is unique), there are two cases:
+
+                        If pn is odd, the size of the largest heap is reduced to n (so now the new pm is even).
+                        If pn is even, the largest heap is removed entirely, leaving an even number of largest
+                        heaps.
+                        Thus, there exists a move to a state where pm is even. Conversely, if pm is even, if any
+                        move is
+                        possible (pm ≠ 0), then it must take the game to a state where pm is odd. The final position
+                        of
+                        the game is even (pm = 0). Hence, each position of the game with pm even must be a P
+                        position.
+                    </p>
+                </div>
+                <div>
+                    <h2>Index-k Nim</h2>
+                    <p>
+                        A generalization of multi-heap Nim was called "Nimk" or "index-k" Nim by E. H. Moore,[13] who
+                        analyzed it in 1910. In index-k Nim, instead of
+                        removing objects from only one heap, players can remove objects from at least one but up to
+                        k
+                        different heaps. The number of elements that may be removed from each heap may be either
+                        arbitrary or limited to at most r elements, like in the "subtraction game" above.
+
+                        The winning strategy is as follows: Like in ordinary multi-heap Nim, one considers the
+                        binary
+                        representation of the heap sizes (or heap sizes modulo r + 1). In ordinary Nim one forms the
+                        XOR-sum (or sum modulo 2) of each binary digit, and the winning strategy is to make each XOR
+                        sum
+                        zero. In the generalization to index-k Nim, one forms the sum of each binary digit modulo k
+                        + 1.
+
+                        Again the winning strategy is to move such that this sum is zero for every digit. Indeed,
+                        the
+                        value thus computed is zero for the final position, and given a configuration of heaps for
+                        which
+                        this value is zero, any change of at most k heaps will make the value non-zero.
+                        Conversely,
+                        given a configuration with non-zero value, one can always take from at most k heaps,
+                        carefully
+                        chosen, so that the value will become zero.
+                    </p>
+                </div>
+                <div>
+                    <h2>Building Nim</h2>
+                    <p>
+                        Building Nim is a variant of Nim wherein the two players first construct the game of Nim.
+                        Given
+                        n stones and s empty piles, the players, alternating turns, place exactly one stone into a
+                        pile
+                        of their choice.[14] Once all the stones are placed, a game of Nim begins, starting with the
+                        next player that would move. This game is denoted BN(n,s).
+                    </p>
+                </div>
+                <div>
+                    <h2>Higher dimensional Nim</h2>
+                    <p>
+                        n-d Nim is played on a k1 x ... x kn board, whereon any number of continuous pieces
+                        can be removed from any hyper-row. The starting position is usually the full board, but
+                        other
+                        options are allowed.
+                    </p>
+                </div>
+                <div>
+                    <h2>Graph Nim</h2>
+                    <p>
+                        The starting board is a disconnected graph, and players take turns to remove adjacent vertices.
+                        Again the winning strategy is to move such that this sum is zero for every digit.
+                    </p>
+                </div>
+                <div>
+                    <h2>Candy Nim</h2>
+                    <p>
+                        Candy Nim is a version of normal play Nim in which players try to achieve two goals at the same
+                        time: taking the last object (in this case, candy) and taking the maximum number of candies by
+                        the end of the game.
+                    </p>
+                </div>
+                <div>
+                    <h2>Wordnim</h2>
+                    <p>
+                        Wordnim is the verbal version of Nim where players form words from initial sets or series of
+                        letters until none are left or no legitimate word can be formed.
+                    </p>
+                </div>
+            </main>
+        </div>
+
+
+
+    </div>
+    <script src="script.js"></script>
+    <footer>
+        <p>Copyright &copy; 2023 Chandan Jaladi<br>
+            <a href="mailto:cj00216@my.westga.edu">cj00216@my.westga.edu</a>
+        </p>
+    </footer>
+</body>
+
+</html>

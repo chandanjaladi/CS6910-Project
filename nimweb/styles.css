@@ -1,0 +1,116 @@
+body {
+    background-color: #FCAE1E;
+    height: auto;
+    width: auto;
+}
+
+.heading {
+    text-align: center;
+    font-size: 4em;
+}
+
+.navbar {
+    /* background-color: #CCCCCC; */
+    overflow: hidden;
+    width: 20%;
+    margin: auto;
+}
+
+.navbar a {
+    float: none;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.game {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 2em;
+}
+
+.gamerules {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 2em;
+}
+
+.gamerules p {
+    padding-left: 15em;
+    padding-right: 15em;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.strategies {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 2em;
+}
+
+.strategies p {
+    padding-left: 15em;
+    padding-right: 15em;
+}
+
+.about {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 2em;
+    padding-left: 15em;
+    padding-right: 15em;
+}
+
+.container {
+    display: flex;
+}
+
+.container p {
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+    background-color: seagreen;
+    cursor: pointer;
+    width: 350px;
+    border: solid 1px black;
+}
+
+nav a {
+    padding: 10px;
+    border: solid 1px black;
+}
+
+nav a:hover {
+    background-color: gold;
+    display: block;
+}
+
+main div {
+    display: none;
+    padding: 20px;
+}
+
+.active {
+    display: block;
+    justify-content: center;
+}
+
+footer {
+    text-align: center;
+    padding: 3px;
+}
