@@ -6,7 +6,7 @@ package edu.westga.cs6910.nim.model;
  * @author CS6910
  * @version Summer 2023
  */
-public class HumanPlayer implements Player {
+public class HumanPlayer extends AbstractPlayer {
 
 	private String name;
 	private int sticksToTake;
@@ -26,24 +26,24 @@ public class HumanPlayer implements Player {
 		this.sticksToTake = 0;
 	}
 
-	@Override	
-	/**
-	 * @see Player#setPileForThisTurn(Pile)
-	 */
+//	@Override	
+//	/**
+//	 * @see Player#setPileForThisTurn(Pile)
+//	 */
+//
+//	public void setPileForThisTurn(Pile aPile) {
+//		this.thePile = aPile;
+//
+//	}
 
-	public void setPileForThisTurn(Pile aPile) {
-		this.thePile = aPile;
-
-	}
-
-	@Override
-	/**
-	 * @see Player#takeTurn(Pile)
-	 */
-	public void takeTurn() {
-
-		this.thePile.removeSticks(this.sticksToTake);
-	}
+//	@Override
+//	/**
+//	 * @see Player#takeTurn(Pile)
+//	 */
+//	public void takeTurn() {
+//
+//		this.thePile.removeSticks(this.sticksToTake);
+//	}
 
 	@Override
 	/**

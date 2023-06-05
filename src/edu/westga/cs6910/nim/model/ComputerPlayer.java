@@ -14,7 +14,7 @@ package edu.westga.cs6910.nim.model;
  * This class was started by CS6910
  * 
  */
-public class ComputerPlayer implements Player {
+public class ComputerPlayer extends AbstractPlayer {
 	private static final String NAME = "Simple computer";
 	
 	private String name;
