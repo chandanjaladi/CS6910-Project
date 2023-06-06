@@ -32,12 +32,14 @@ public class ComputerPane extends GridPane implements InvalidationListener {
 	 */
 	public ComputerPane(Game theGame) {
 		this.theGame = theGame;
+		this.lblNumberTaken = new Label();
+		this.add(lblNumberTaken, 2, 4);
 		
 		// TODO: Add this object as an listener of the Game.
 		this.theGame.addListener(this);
 		
 		this.theComputer = this.theGame.getComputerPlayer();
-		
+		//this.lblNumberTaken.setText(String.valueOf(this.theComputer.getSticksOnThisTurn()));
 		this.buildPane();
 	}
 	
@@ -63,7 +65,8 @@ public class ComputerPane extends GridPane implements InvalidationListener {
 		if (!myTurn) {
 			// TODO: Set the user interface to show the number of
 			// sticks taken by the computer player.
-			this.lblNumberTaken.setText(String.valueOf(this.theComputer.getSticksOnThisTurn()));
+			this.lblNumberTaken.setText("Sticks taken by computer: " + String.valueOf(this.theComputer.getSticksOnThisTurn()));
+		
 
 		} 
 		// TODO: Disable if it is no longer the computer's turn, enable it if
