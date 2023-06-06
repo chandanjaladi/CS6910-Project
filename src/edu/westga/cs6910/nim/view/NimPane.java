@@ -5,6 +5,7 @@ import edu.westga.cs6910.nim.model.Player;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -42,14 +43,26 @@ public class NimPane extends BorderPane {
 		// TODO: 1. Using the 'first player chooser pane' as a guide
 		//			Create an HBox with the appropriate style, then
 		//			make a human player pane and add it to the HBox.
-		//			Finally add the HBox to the content pane	
+		//			Finally add the HBox to the content pane
+		HBox humanBox = new HBox();
+		this.pnHumanPlayer = new HumanPane(this.theGame);
+		humanBox.getChildren().addAll(this.pnHumanPlayer);
+		this.pnContent.setLeft(humanBox);
 		
 		// TODO: 2. Using the other panes as a guide, create
 		//			and add a status pane	
 		
+		HBox statusBox = new HBox();
+		this.pnGameInfo = new StatusPane(this.theGame);
+		statusBox.getChildren().addAll(this.pnGameInfo);
+		this.pnContent.setCenter(statusBox);
 		// TODO: 3. Using the other panes as a guide, create
 		//			and add a computer pane
 
+		HBox computerBox = new HBox();
+		this.pnComputerPlayer = new ComputerPane(this.theGame);
+		computerBox.getChildren().addAll(this.pnComputerPlayer);
+		this.pnContent.setRight(computerBox);
 		this.setCenter(this.pnContent);
 	}
 
@@ -90,13 +103,19 @@ public class NimPane extends BorderPane {
 			// TODO: Instantiate the computer player button and set 
 			//		its action listener.
 			this.radComputerPlayer = new RadioButton(this.theComputer.getName() + " first");
-			this.radHumanPlayer.setOnAction(new ComputerFirstListener());
+			this.radComputerPlayer.setOnAction(new ComputerFirstListener());
 			
 			// TODO: Create a ToggleGroup and add the 2 radio buttons to it.
-			
+			ToggleGroup group = new ToggleGroup();
+
+			this.radHumanPlayer.setToggleGroup(group);
+			this.radComputerPlayer.setToggleGroup(group);
+			//this.radHumanPlayer.setSelected(true);
 			
 			// TODO: Add the 2 radio buttons to this pane.
-		
+			this.add(this.radHumanPlayer, 3, 3);
+			this.add(this.radComputerPlayer, 3, 4);
+			
 		}
 		
 		/* 
