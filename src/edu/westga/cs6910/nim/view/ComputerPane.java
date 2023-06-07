@@ -15,6 +15,8 @@ import javafx.scene.layout.GridPane;
  * turn and that displays the number of sticks the computer player took on its
  * turn. This class was started by CS6910
  * 
+ * @author Chandan Jaladi
+ * @version 06/06/2023
  */
 public class ComputerPane extends GridPane implements InvalidationListener {
 	private Game theGame;
@@ -32,21 +34,14 @@ public class ComputerPane extends GridPane implements InvalidationListener {
 	public ComputerPane(Game theGame) {
 		this.theGame = theGame;
 		this.lblNumberTaken = new Label();
-		this.add(lblNumberTaken, 2, 4);
-
-		// TODO: Add this object as an listener of the Game.
+		this.add(this.lblNumberTaken, 2, 4);
 		this.theGame.addListener(this);
-
 		this.theComputer = this.theGame.getComputerPlayer();
-		// this.lblNumberTaken.setText(String.valueOf(this.theComputer.getSticksOnThisTurn()));
 		this.buildPane();
 	}
 
 	private void buildPane() {
-		// TODO: Using the other pane classes as a model, build this pane.
-
 		this.add(new Label("~~ " + this.theComputer.getName() + " ~~"), 0, 0);
-
 		this.btnTakeTurn = new Button("Take Turn");
 		this.btnTakeTurn.setOnAction(new TakeTurnListener());
 		this.add(this.btnTakeTurn, 3, 1);
@@ -59,22 +54,14 @@ public class ComputerPane extends GridPane implements InvalidationListener {
 			this.setDisable(true);
 			return;
 		}
-
 		boolean myTurn = this.theGame.getCurrentPlayer() == this.theComputer;
-
 		if (!myTurn) {
-			// TODO: Set the user interface to show the number of
-			// sticks taken by the computer player.
 			this.lblNumberTaken.setText("Sticks taken: " + String.valueOf(this.theComputer.getSticksOnThisTurn()));
-
 		}
-		// TODO: Disable if it is no longer the computer's turn, enable it if
-		// it is the computer's turn
 		if (this.theGame.getCurrentPlayer() == this.theComputer) {
 			this.setDisable(false);
 		} else {
 			this.setDisable(true);
-
 		}
 
 	}
@@ -92,9 +79,6 @@ public class ComputerPane extends GridPane implements InvalidationListener {
 		 */
 		@Override
 		public void handle(ActionEvent arg0) {
-			// TODO: if the game isn't finished:
-			// - Set the computer's pile and number of sticks.
-			// - Tell theGame to play a move.
 			if (!ComputerPane.this.theGame.isGameOver()) {
 				ComputerPane.this.theComputer.setPileForThisTurn(ComputerPane.this.theGame.getPile());
 				ComputerPane.this.theComputer.setNumberSticksToTake();

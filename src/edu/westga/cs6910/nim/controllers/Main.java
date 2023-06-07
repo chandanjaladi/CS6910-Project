@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 /**
  * Driver for the application. Creates the GUI and shows it.
  * 
- * @author CS6910
+ * @author Chandan Jaladi
  * @version Summer 2023
  *
  */

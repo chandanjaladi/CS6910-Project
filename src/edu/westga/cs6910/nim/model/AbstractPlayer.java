@@ -1,15 +1,28 @@
 package edu.westga.cs6910.nim.model;
 
+/**
+ * This is an abstract class which is used to share the common code between two
+ * classes
+ * 
+ * @author Chandan Jaladi
+ * @version 06/06/2023
+ *
+ */
 public abstract class AbstractPlayer implements Player {
 	private String name;
 	private int sticksToTake;
 	private Pile thePile;
 
+	/**
+	 * This is a constructor which is used to initalize the instance variables
+	 * 
+	 * @param name is the name of the player who plays the game
+	 */
 	public AbstractPlayer(String name) {
 		this.name = name;
 		this.sticksToTake = 0;
 	}
-	
+
 	@Override
 	/**
 	 * @see Player#takeTurn()
@@ -46,7 +59,7 @@ public abstract class AbstractPlayer implements Player {
 	 * @see Player#setNumberSticksToTake()
 	 */
 	public void setNumberSticksToTake() {
-		this.sticksToTake = 1;
+		this.setNumberSticksToTake(1);
 	}
 
 	@Override

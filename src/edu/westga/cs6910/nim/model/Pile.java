@@ -2,7 +2,8 @@ package edu.westga.cs6910.nim.model;
 
 /**
  * A pile of sticks for playing Nim.
- * @author CS6910
+ * 
+ * @author Chandan Jaladi
  * @version Summer 2023
  */
 public class Pile {
@@ -11,7 +12,8 @@ public class Pile {
 
 	/**
 	 * Creates a new Pile with the specified number of sticks.
-	 * @param	sticks	The number of sticks in the Pile
+	 * 
+	 * @param sticks The number of sticks in the Pile
 	 * 
 	 * @require sticks > 0
 	 * @ensure sticksLeft() == sticks
@@ -22,7 +24,8 @@ public class Pile {
 
 	/**
 	 * Reduces the number of sticks by the specified amount.
-	 * @param	number	The number of sticks to be removed
+	 * 
+	 * @param number The number of sticks to be removed
 	 * 
 	 * @require number > 0 && number <= this.sticksLeft()
 	 * @ensure this.sticksLeft() == sticksLeft() - number
@@ -30,7 +33,7 @@ public class Pile {
 	public void removeSticks(int number) {
 		this.sticks -= number;
 	}
-	
+
 	/**
 	 * Returns the number of sticks remaining in this Pile.
 	 * 

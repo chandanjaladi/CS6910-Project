@@ -14,6 +14,8 @@ import javafx.scene.layout.Pane;
 /**
  * Defines a GUI for the 1-pile Nim game. This class was started by CS6910
  * 
+ * @author Chandan Jaladi
+ * @version 06/06/2023
  */
 public class NimPane extends BorderPane {
 	private Game theGame;
@@ -34,39 +36,24 @@ public class NimPane extends BorderPane {
 	 */
 	public NimPane(Game theGame) {
 		this.theGame = theGame;
-
 		this.pnContent = new BorderPane();
-
 		this.addFirstPlayerChooserPane(theGame);
-
-		// TODO: 1. Using the 'first player chooser pane' as a guide
-		// Create an HBox with the appropriate style, then
-		// make a human player pane and add it to the HBox.
-		// Finally add the HBox to the content pane
 		HBox humanBox = new HBox();
 		humanBox.getStyleClass().add("pane-border");
 		this.pnHumanPlayer = new HumanPane(this.theGame);
 		humanBox.getChildren().addAll(this.pnHumanPlayer);
 		this.pnContent.setLeft(humanBox);
-
-		// TODO: 2. Using the other panes as a guide, create
-		// and add a status pane
-
 		HBox statusBox = new HBox();
 		statusBox.getStyleClass().add("pane-border");
 		this.pnGameInfo = new StatusPane(this.theGame);
 		statusBox.getChildren().addAll(this.pnGameInfo);
 		this.pnContent.setCenter(statusBox);
-		// TODO: 3. Using the other panes as a guide, create
-		// and add a computer pane
-
 		HBox computerBox = new HBox();
 		computerBox.getStyleClass().add("pane-border");
 		this.pnComputerPlayer = new ComputerPane(this.theGame);
 		computerBox.getChildren().addAll(this.pnComputerPlayer);
 		this.pnContent.setRight(computerBox);
 		this.setCenter(this.pnContent);
-
 	}
 
 	private void addFirstPlayerChooserPane(Game theGame) {
@@ -101,26 +88,15 @@ public class NimPane extends BorderPane {
 
 		private void buildPane() {
 			this.setHgap(20);
-
 			this.radHumanPlayer = new RadioButton(this.theHuman.getName() + " first");
 			this.radHumanPlayer.setOnAction(new HumanFirstListener());
-
-			// TODO: Instantiate the computer player button and set
-			// its action listener.
 			this.radComputerPlayer = new RadioButton(this.theComputer.getName() + " first");
 			this.radComputerPlayer.setOnAction(new ComputerFirstListener());
-
-			// TODO: Create a ToggleGroup and add the 2 radio buttons to it.
 			ToggleGroup group = new ToggleGroup();
-
 			this.radHumanPlayer.setToggleGroup(group);
 			this.radComputerPlayer.setToggleGroup(group);
-			// this.radHumanPlayer.setSelected(true);
-
-			// TODO: Add the 2 radio buttons to this pane.
 			this.add(this.radHumanPlayer, 3, 3);
 			this.add(this.radComputerPlayer, 3, 4);
-
 		}
 
 		/*
@@ -150,10 +126,7 @@ public class NimPane extends BorderPane {
 			@Override
 			public void handle(ActionEvent event) {
 				NimPane.this.pnChooseFirstPlayer.setDisable(true);
-				// TODO: Enable the human player pane and start a game
-				// with the human playing first.
 				NimPane.this.theGame.startNewGame(NewGamePane.this.theHuman);
-
 			}
 		}
 	}

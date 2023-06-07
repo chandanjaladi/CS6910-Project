@@ -15,7 +15,7 @@ import javafx.scene.layout.GridPane;
  * Defines the panel that lets the user indicate the number of sticks to take
  * from the pile and to take the turn.
  * 
- * @author CS6910
+ * @author Chandan Jaladi
  * @version Summer 2023
  */
 public class HumanPane extends GridPane implements InvalidationListener {

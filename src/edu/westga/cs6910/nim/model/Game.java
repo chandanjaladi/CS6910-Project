@@ -8,6 +8,9 @@ import javafx.beans.property.SimpleObjectProperty;
 /**
  * Game represents a Nim game with 1 pile of sticks. This class was started by
  * CS6910
+ * 
+ * @author Chandan Jaladi
+ * @version 06/06/2023
  */
 public class Game implements Observable {
 	/** Constant to define the initial pile size */
@@ -67,13 +70,10 @@ public class Game implements Observable {
 	 * 
 	 * @requires !isGameOver()
 	 * 
-	 * @ensures !whoseTurn().equals(whoseTurn()@prev) && sticksLeft() <
+	 * @ensures !whoseTurn().equals(whoseTurn()@prev) && sticksLeft()
 	 *          sticksLeft()@prev
 	 */
 	public void play() {
-		// TODO: 1. Tell the current player to take its turn.
-		// 2. Swap whose turn it is.
-
 		if (!this.isGameOver()) {
 			this.currentPlayerObject.get().takeTurn();
 			this.swapWhoseTurn();
@@ -157,13 +157,11 @@ public class Game implements Observable {
 	}
 
 	private void swapWhoseTurn() {
-		// TODO: Swap the players so that the other player becomes
-		// the current player.
 
-		if (this.currentPlayerObject.get().equals(theComputer)) {
-			this.currentPlayerObject.set(theHuman);
+		if (this.currentPlayerObject.get().equals(this.theComputer)) {
+			this.currentPlayerObject.set(this.theHuman);
 		} else {
-			this.currentPlayerObject.set(theComputer);
+			this.currentPlayerObject.set(this.theComputer);
 		}
 	}
 
