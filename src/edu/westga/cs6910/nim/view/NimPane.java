@@ -45,6 +45,7 @@ public class NimPane extends BorderPane {
 		//			make a human player pane and add it to the HBox.
 		//			Finally add the HBox to the content pane
 		HBox humanBox = new HBox();
+		humanBox.getStyleClass().add("pane-border");
 		this.pnHumanPlayer = new HumanPane(this.theGame);
 		humanBox.getChildren().addAll(this.pnHumanPlayer);
 		this.pnContent.setLeft(humanBox);
@@ -53,6 +54,7 @@ public class NimPane extends BorderPane {
 		//			and add a status pane	
 		
 		HBox statusBox = new HBox();
+		statusBox.getStyleClass().add("pane-border");
 		this.pnGameInfo = new StatusPane(this.theGame);
 		statusBox.getChildren().addAll(this.pnGameInfo);
 		this.pnContent.setCenter(statusBox);
@@ -60,10 +62,12 @@ public class NimPane extends BorderPane {
 		//			and add a computer pane
 
 		HBox computerBox = new HBox();
+		computerBox.getStyleClass().add("pane-border");
 		this.pnComputerPlayer = new ComputerPane(this.theGame);
 		computerBox.getChildren().addAll(this.pnComputerPlayer);
 		this.pnContent.setRight(computerBox);
 		this.setCenter(this.pnContent);
+		
 	}
 
 	private void addFirstPlayerChooserPane(Game theGame) {
@@ -72,6 +76,7 @@ public class NimPane extends BorderPane {
 		this.pnChooseFirstPlayer = new NewGamePane(theGame);
 		topBox.getChildren().add(this.pnChooseFirstPlayer);
 		this.pnContent.setTop(topBox);
+		
 	}
 
 	/*
@@ -92,6 +97,7 @@ public class NimPane extends BorderPane {
 			this.theComputer = this.theGame.getComputerPlayer();
 			
 			this.buildPane();
+			
 		}
 		
 		private void buildPane() {
@@ -115,7 +121,7 @@ public class NimPane extends BorderPane {
 			// TODO: Add the 2 radio buttons to this pane.
 			this.add(this.radHumanPlayer, 3, 3);
 			this.add(this.radComputerPlayer, 3, 4);
-			
+
 		}
 		
 		/* 

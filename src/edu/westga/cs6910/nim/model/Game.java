@@ -78,7 +78,7 @@ public class Game implements Observable {
 			this.currentPlayerObject.get().takeTurn();
 			this.swapWhoseTurn();
 		}
-		this.isGameOver();
+		
 	}
 
 	/**

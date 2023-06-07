@@ -26,24 +26,24 @@ public class HumanPlayer extends AbstractPlayer {
 		this.sticksToTake = 0;
 	}
 
-//	@Override	
-//	/**
-//	 * @see Player#setPileForThisTurn(Pile)
-//	 */
-//
-//	public void setPileForThisTurn(Pile aPile) {
-//		this.thePile = aPile;
-//
-//	}
+	@Override	
+	/**
+	 * @see Player#setPileForThisTurn(Pile)
+	 */
 
-//	@Override
-//	/**
-//	 * @see Player#takeTurn(Pile)
-//	 */
-//	public void takeTurn() {
-//
-//		this.thePile.removeSticks(this.sticksToTake);
-//	}
+	public void setPileForThisTurn(Pile aPile) {
+		this.thePile = aPile;
+
+	}
+
+	@Override
+	/**
+	 * @see Player#takeTurn(Pile)
+	 */
+	public void takeTurn() {
+
+		this.thePile.removeSticks(this.sticksToTake);
+	}
 
 	@Override
 	/**
