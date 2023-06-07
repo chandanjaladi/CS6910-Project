@@ -65,8 +65,7 @@ public class ComputerPane extends GridPane implements InvalidationListener {
 		if (!myTurn) {
 			// TODO: Set the user interface to show the number of
 			// sticks taken by the computer player.
-			this.lblNumberTaken
-					.setText("Sticks taken: " + String.valueOf(this.theComputer.getSticksOnThisTurn()));
+			this.lblNumberTaken.setText("Sticks taken: " + String.valueOf(this.theComputer.getSticksOnThisTurn()));
 
 		}
 		// TODO: Disable if it is no longer the computer's turn, enable it if

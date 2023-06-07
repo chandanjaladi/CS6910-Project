@@ -74,11 +74,11 @@ public class Game implements Observable {
 		// TODO: 1. Tell the current player to take its turn.
 		// 2. Swap whose turn it is.
 
-		if(!this.isGameOver()) {
+		if (!this.isGameOver()) {
 			this.currentPlayerObject.get().takeTurn();
 			this.swapWhoseTurn();
 		}
-		
+
 	}
 
 	/**
