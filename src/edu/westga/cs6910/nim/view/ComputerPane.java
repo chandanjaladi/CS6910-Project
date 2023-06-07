@@ -34,7 +34,7 @@ public class ComputerPane extends GridPane implements InvalidationListener {
 	public ComputerPane(Game theGame) {
 		this.theGame = theGame;
 		this.lblNumberTaken = new Label();
-		this.add(this.lblNumberTaken, 2, 4);
+		this.add(this.lblNumberTaken, 0, 3);
 		this.theGame.addListener(this);
 		this.theComputer = this.theGame.getComputerPlayer();
 		this.buildPane();
@@ -44,7 +44,7 @@ public class ComputerPane extends GridPane implements InvalidationListener {
 		this.add(new Label("~~ " + this.theComputer.getName() + " ~~"), 0, 0);
 		this.btnTakeTurn = new Button("Take Turn");
 		this.btnTakeTurn.setOnAction(new TakeTurnListener());
-		this.add(this.btnTakeTurn, 3, 1);
+		this.add(this.btnTakeTurn, 0, 1);
 		this.setDisable(true);
 	}
 
