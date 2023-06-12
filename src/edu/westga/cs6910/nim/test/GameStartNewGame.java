@@ -16,28 +16,28 @@ class GameStartNewGame {
 		ComputerPlayer myComputer = new ComputerPlayer();
 		Game myGame = new Game(myHuman, myComputer);
 		myGame.startNewGame(myHuman);
-		assertEquals(myHuman,myGame.getCurrentPlayer());
-		assertEquals("Chandan",myHuman.getName());
+		assertEquals(myHuman, myGame.getCurrentPlayer());
+		assertEquals(7, myGame.getSticksLeft());
 	}
-	
+
 	@Test
 	public void testStartAnotherNewGame() {
 		HumanPlayer myHuman = new HumanPlayer("Jaladi");
 		ComputerPlayer myComputer = new ComputerPlayer();
 		Game myGame = new Game(myHuman, myComputer);
 		myGame.startNewGame(myHuman);
-		assertEquals(myHuman,myGame.getCurrentPlayer());
-		assertEquals("Jaladi",myHuman.getName());
+		assertEquals(myHuman, myGame.getCurrentPlayer());
+		assertEquals(7, myGame.getSticksLeft());
 	}
-	
+
 	@Test
 	public void testStartAnotherNewGameByComputer() {
 		HumanPlayer myHuman = new HumanPlayer("Jaladi");
 		ComputerPlayer myComputer = new ComputerPlayer();
 		Game myGame = new Game(myHuman, myComputer);
 		myGame.startNewGame(myComputer);
-		assertEquals(myComputer,myGame.getCurrentPlayer());
-		assertEquals("Simple computer",myComputer.getName());
+		assertEquals(myComputer, myGame.getCurrentPlayer());
+		assertEquals(7, myGame.getSticksLeft());
 	}
 
 }
