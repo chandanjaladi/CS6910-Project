@@ -14,7 +14,7 @@ public abstract class AbstractPlayer implements Player {
 	private Pile thePile;
 
 	/**
-	 * This is a constructor which is used to initalize the instance variables
+	 * This is a constructor which is used to initialize the instance variables
 	 * 
 	 * @param name is the name of the player who plays the game
 	 */
