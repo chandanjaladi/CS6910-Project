@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import edu.westga.cs6910.nim.model.Pile;
 
-class PileRemoveSticks {
+class PileWhenRemoveSticks {
 
 	@Test
 	public void testShouldRemoveGivenNumberOfSticks() {
