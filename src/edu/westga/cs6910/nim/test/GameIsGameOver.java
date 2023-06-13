@@ -17,5 +17,10 @@ class GameIsGameOver {
 		Game myGame = new Game(myHuman, myComputer);
 		assertEquals(false,myGame.isGameOver());
 	}
+	
+	@Test
+	public void testWhenGameIsOver() {
+		
+	}
 
 }
