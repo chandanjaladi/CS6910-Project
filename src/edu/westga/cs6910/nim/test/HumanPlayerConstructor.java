@@ -13,13 +13,13 @@ class HumanPlayerConstructor {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
 		assertEquals("Chandan", myHuman.getName());
 	}
-	
+
 	@Test
 	public void testConstructorWithAnotherName() {
 		HumanPlayer myHuman = new HumanPlayer("Jaladi");
 		assertEquals("Jaladi", myHuman.getName());
 	}
-	
+
 	@Test
 	public void testConstructorWithDifferentName() {
 		HumanPlayer myHuman = new HumanPlayer("India");
