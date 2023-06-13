@@ -8,8 +8,18 @@ import edu.westga.cs6910.nim.model.ComputerPlayer;
 import edu.westga.cs6910.nim.model.Game;
 import edu.westga.cs6910.nim.model.HumanPlayer;
 
+/**
+ * This JUnit is used to test the start new game method
+ * 
+ * @author Chandan Jaladi
+ * @version 06/13/2023
+ *
+ */
 class GameStartNewGame {
 
+	/**
+	 * This test starts a new game
+	 */
 	@Test
 	public void testStartANewGame() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
@@ -20,6 +30,9 @@ class GameStartNewGame {
 		assertEquals(7, myGame.getSticksLeft());
 	}
 
+	/**
+	 * This test starts another new game
+	 */
 	@Test
 	public void testStartAnotherNewGame() {
 		HumanPlayer myHuman = new HumanPlayer("Jaladi");
@@ -30,6 +43,9 @@ class GameStartNewGame {
 		assertEquals(7, myGame.getSticksLeft());
 	}
 
+	/**
+	 * This test starts another game by computer
+	 */
 	@Test
 	public void testStartAnotherNewGameByComputer() {
 		HumanPlayer myHuman = new HumanPlayer("Jaladi");

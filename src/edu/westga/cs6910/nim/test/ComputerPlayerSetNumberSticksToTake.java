@@ -8,8 +8,18 @@ import edu.westga.cs6910.nim.model.ComputerPlayer;
 import edu.westga.cs6910.nim.model.Game;
 import edu.westga.cs6910.nim.model.HumanPlayer;
 
+/**
+ * This JUnit is used to test the number of sticks to take setter method
+ * 
+ * @author Chandan Jaladi
+ * @version 06/13/2023
+ *
+ */
 class ComputerPlayerSetNumberSticksToTake {
 
+	/**
+	 * This test is when the computer played first
+	 */
 	@Test
 	public void testWhenComputerTakesFirst() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
@@ -22,6 +32,9 @@ class ComputerPlayerSetNumberSticksToTake {
 		assertEquals(1, myComputer.getSticksOnThisTurn());
 	}
 
+	/**
+	 * This test is when the human played first
+	 */
 	@Test
 	public void testWhenHumanPlayedFirst() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");

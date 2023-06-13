@@ -8,8 +8,18 @@ import edu.westga.cs6910.nim.model.ComputerPlayer;
 import edu.westga.cs6910.nim.model.Game;
 import edu.westga.cs6910.nim.model.HumanPlayer;
 
+/**
+ * This JUnit is used to test the set pile for the turn
+ * 
+ * @author Chandan Jaladi
+ * @version 06/13/2023
+ *
+ */
 class HumanPlayerSetPileForThisTurn {
 
+	/**
+	 * This test is when human starts playing
+	 */
 	@Test
 	public void testHumanStartsPlaying() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
@@ -20,6 +30,9 @@ class HumanPlayerSetPileForThisTurn {
 		assertEquals(7, myHuman.getPileForThisTurn().getSticksLeft());
 	}
 
+	/**
+	 * This test is when computer starts playing first
+	 */
 	@Test
 	public void testWhenComputerPlayedFirst() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");

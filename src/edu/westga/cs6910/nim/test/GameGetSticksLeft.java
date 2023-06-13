@@ -8,8 +8,18 @@ import edu.westga.cs6910.nim.model.ComputerPlayer;
 import edu.westga.cs6910.nim.model.Game;
 import edu.westga.cs6910.nim.model.HumanPlayer;
 
+/**
+ * This JUnit is used to test the sticks left
+ * 
+ * @author Chandan Jaladi
+ * @version 06/13/20323
+ *
+ */
 class GameGetSticksLeft {
 
+	/**
+	 * This test is when all sticks are left
+	 */
 	@Test
 	public void testWhenAllSticksAreLeft() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
@@ -18,6 +28,9 @@ class GameGetSticksLeft {
 		assertEquals(7, myGame.getSticksLeft());
 	}
 
+	/**
+	 * This test is when human played first
+	 */
 	@Test
 	public void testWhenComputerPlayedFirst() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
@@ -30,6 +43,9 @@ class GameGetSticksLeft {
 		assertEquals(6, myGame.getSticksLeft());
 	}
 
+	/**
+	 * This test is when computer played first
+	 */
 	@Test
 	public void testWhenHumanPlayedFirst() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");

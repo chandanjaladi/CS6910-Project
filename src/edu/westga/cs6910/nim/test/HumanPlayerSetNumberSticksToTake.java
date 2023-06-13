@@ -8,8 +8,18 @@ import edu.westga.cs6910.nim.model.ComputerPlayer;
 import edu.westga.cs6910.nim.model.Game;
 import edu.westga.cs6910.nim.model.HumanPlayer;
 
+/**
+ * This JUnit is used to test the human player number of sticks to take
+ * 
+ * @author Chandan Jaladi
+ * @version 06/13/2023
+ *
+ */
 class HumanPlayerSetNumberSticksToTake {
 
+	/**
+	 * This test is when the humanPlayed with 3 sticks
+	 */
 	@Test
 	public void testWhenHumanPlayedFirstWith3Sticks() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
@@ -22,6 +32,9 @@ class HumanPlayerSetNumberSticksToTake {
 		assertEquals(3, myHuman.getSticksOnThisTurn());
 	}
 
+	/**
+	 * This test is when human played with 2 sticks
+	 */
 	@Test
 	public void testWhenHumanPlayedFirstWith2Sticks() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
@@ -34,8 +47,11 @@ class HumanPlayerSetNumberSticksToTake {
 		assertEquals(2, myHuman.getSticksOnThisTurn());
 	}
 
+	/**
+	 * This test is when human played with 1 stick
+	 */
 	@Test
-	public void testWhenHumanPlayedFirstWith1Sticks() {
+	public void testWhenHumanPlayedFirstWith1Stick() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
 		ComputerPlayer myComputer = new ComputerPlayer();
 		Game myGame = new Game(myHuman, myComputer);
@@ -46,6 +62,9 @@ class HumanPlayerSetNumberSticksToTake {
 		assertEquals(1, myHuman.getSticksOnThisTurn());
 	}
 
+	/**
+	 * This test is when computer played first
+	 */
 	@Test
 	public void testWhenComputerPlayedFirst() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");

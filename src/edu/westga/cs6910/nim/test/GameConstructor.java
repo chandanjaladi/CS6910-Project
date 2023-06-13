@@ -8,8 +8,18 @@ import edu.westga.cs6910.nim.model.ComputerPlayer;
 import edu.westga.cs6910.nim.model.Game;
 import edu.westga.cs6910.nim.model.HumanPlayer;
 
+/**
+ * This JUnit is used to test the Game class constructor
+ * 
+ * @author Chandan Jaladi
+ * @version 06/13/2023
+ *
+ */
 class GameConstructor {
 
+	/**
+	 * This test is when the game is created
+	 */
 	@Test
 	public void testWhenGameIsCreated() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
@@ -18,6 +28,9 @@ class GameConstructor {
 		assertEquals(" Pile size: 7", myGame.toString());
 	}
 
+	/**
+	 * This test when another game is created
+	 */
 	@Test
 	public void testWhenAnotherGameIsCreated() {
 		HumanPlayer myHuman = new HumanPlayer("Jaladi");
@@ -26,6 +39,9 @@ class GameConstructor {
 		assertEquals(" Pile size: 7", myGame.toString());
 	}
 
+	/**
+	 * This test is when other game is created
+	 */
 	@Test
 	public void testWhenDifferentGameIsCreated() {
 		HumanPlayer myHuman = new HumanPlayer("India");

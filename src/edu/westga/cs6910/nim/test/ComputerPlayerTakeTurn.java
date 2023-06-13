@@ -8,8 +8,18 @@ import edu.westga.cs6910.nim.model.ComputerPlayer;
 import edu.westga.cs6910.nim.model.Game;
 import edu.westga.cs6910.nim.model.HumanPlayer;
 
+/**
+ * This JUnit is used to test the Take turn method
+ * 
+ * @author Chandan Jaladi
+ * @version 06/13/2023
+ *
+ */
 class ComputerPlayerTakeTurn {
 
+	/**
+	 * This test is when the pile is full for computer
+	 */
 	@Test
 	public void testWhenPileIsFull() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
@@ -22,6 +32,9 @@ class ComputerPlayerTakeTurn {
 		assertEquals(6, myGame.getPile().getSticksLeft());
 	}
 
+	/**
+	 * This test is when pile is not full for the computer
+	 */
 	@Test
 	public void testWhenPileIsAlreadyPlayed() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");

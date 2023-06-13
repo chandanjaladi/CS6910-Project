@@ -8,8 +8,18 @@ import edu.westga.cs6910.nim.model.ComputerPlayer;
 import edu.westga.cs6910.nim.model.Game;
 import edu.westga.cs6910.nim.model.HumanPlayer;
 
+/**
+ * This JUnit is used to test the getCurrentPlayer method in the Game class
+ * 
+ * @author Chandan Jaladi
+ * @version 06/13/2023
+ *
+ */
 class GameGetCurrentPlayer {
 
+	/**
+	 * This test is when human started first
+	 */
 	@Test
 	public void testWhenHumanStartedFirst() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
@@ -19,6 +29,9 @@ class GameGetCurrentPlayer {
 		assertEquals(myHuman, myGame.getCurrentPlayer());
 	}
 
+	/**
+	 * This test is when computer started first
+	 */
 	@Test
 	public void testWhenComputerStartedFirst() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
@@ -28,6 +41,9 @@ class GameGetCurrentPlayer {
 		assertEquals(myComputer, myGame.getCurrentPlayer());
 	}
 
+	/**
+	 * This test is when human started and swapped
+	 */
 	@Test
 	public void testWhenHumanPlayedAndSwapped() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
@@ -40,6 +56,9 @@ class GameGetCurrentPlayer {
 		assertEquals(myComputer, myGame.getCurrentPlayer());
 	}
 
+	/**
+	 * This test is when computer started and swapped
+	 */
 	@Test
 	public void testWhenComputerPlayedAndSwapped() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");

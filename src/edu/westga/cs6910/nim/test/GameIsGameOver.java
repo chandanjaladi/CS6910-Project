@@ -8,8 +8,18 @@ import edu.westga.cs6910.nim.model.ComputerPlayer;
 import edu.westga.cs6910.nim.model.Game;
 import edu.westga.cs6910.nim.model.HumanPlayer;
 
+/**
+ * This JUnit is used to test the IsGameOver method
+ * 
+ * @author Chandan Jaladi
+ * @version 06/13/2023
+ *
+ */
 class GameIsGameOver {
 
+	/**
+	 * This test is when the game is not over
+	 */
 	@Test
 	public void testWhenGameIsNotOver() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
@@ -18,6 +28,9 @@ class GameIsGameOver {
 		assertEquals(false, myGame.isGameOver());
 	}
 
+	/**
+	 * This test is when the game is over and human won
+	 */
 	@Test
 	public void testWhenGameIsOverAndHumanWon() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
@@ -36,6 +49,9 @@ class GameIsGameOver {
 		assertEquals(true, myGame.isGameOver());
 	}
 
+	/**
+	 * This test when the game is over and computer won
+	 */
 	@Test
 	public void testWhenGameIsOverAndComputerWon() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");

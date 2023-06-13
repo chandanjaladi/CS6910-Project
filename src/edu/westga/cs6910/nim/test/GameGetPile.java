@@ -8,8 +8,18 @@ import edu.westga.cs6910.nim.model.ComputerPlayer;
 import edu.westga.cs6910.nim.model.Game;
 import edu.westga.cs6910.nim.model.HumanPlayer;
 
+/**
+ * This JUnit is used to get the pile
+ * 
+ * @author Chandan Jaladi
+ * @version 06/13/2023
+ *
+ */
 class GameGetPile {
 
+	/**
+	 * This test is when pile is full
+	 */
 	@Test
 	public void testWhenPileIsFull() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
@@ -19,6 +29,9 @@ class GameGetPile {
 		assertEquals(7, myGame.getPile().getSticksLeft());
 	}
 
+	/**
+	 * This test is when humna played
+	 */
 	@Test
 	public void testWhenHumanPlayed() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
@@ -31,6 +44,9 @@ class GameGetPile {
 		assertEquals(4, myGame.getPile().getSticksLeft());
 	}
 
+	/**
+	 * This test is when computer played
+	 */
 	@Test
 	public void testWhenComputerPlayed() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
