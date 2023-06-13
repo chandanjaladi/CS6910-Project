@@ -19,8 +19,42 @@ class GameIsGameOver {
 	}
 	
 	@Test
-	public void testWhenGameIsOver() {
-		
+	public void testWhenGameIsOverAndHumanWon() {
+		HumanPlayer myHuman = new HumanPlayer("Chandan");
+		ComputerPlayer myComputer = new ComputerPlayer();
+		Game myGame = new Game(myHuman, myComputer);
+		myGame.startNewGame(myHuman);
+		myHuman.setPileForThisTurn(myGame.getPile());
+		myHuman.setNumberSticksToTake(3);
+		myGame.play();
+		myComputer.setPileForThisTurn(myGame.getPile());
+		myComputer.setNumberSticksToTake();
+		myGame.play();
+		myHuman.setPileForThisTurn(myGame.getPile());
+		myHuman.setNumberSticksToTake(2);
+		myGame.play();
+		assertEquals(true, myGame.isGameOver());
+	}
+	
+	@Test
+	public void testWhenGameIsOverAndComputerWon() {
+		HumanPlayer myHuman = new HumanPlayer("Chandan");
+		ComputerPlayer myComputer = new ComputerPlayer();
+		Game myGame = new Game(myHuman, myComputer);
+		myGame.startNewGame(myHuman);
+		myHuman.setPileForThisTurn(myGame.getPile());
+		myHuman.setNumberSticksToTake(3);
+		myGame.play();
+		myComputer.setPileForThisTurn(myGame.getPile());
+		myComputer.setNumberSticksToTake();
+		myGame.play();
+		myHuman.setPileForThisTurn(myGame.getPile());
+		myHuman.setNumberSticksToTake(1);
+		myGame.play();
+		myComputer.setPileForThisTurn(myGame.getPile());
+		myComputer.setNumberSticksToTake();
+		myGame.play();
+		assertEquals(true, myGame.isGameOver());
 	}
 
 }
