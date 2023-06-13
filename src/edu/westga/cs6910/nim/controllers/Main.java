@@ -31,8 +31,7 @@ public class Main extends Application {
 	/**
 	 * Entry point into the application
 	 * 
-	 * @param args
-	 *            Not used
+	 * @param args Not used
 	 */
 	public static void main(String[] args) {
 		launch(args);

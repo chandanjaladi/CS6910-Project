@@ -16,7 +16,7 @@ class GameGetPile {
 		ComputerPlayer myComputer = new ComputerPlayer();
 		Game myGame = new Game(myHuman, myComputer);
 		myGame.startNewGame(myHuman);
-		assertEquals(7,myGame.getPile().getSticksLeft());
+		assertEquals(7, myGame.getPile().getSticksLeft());
 	}
 
 	@Test
@@ -28,9 +28,9 @@ class GameGetPile {
 		myHuman.setPileForThisTurn(myGame.getPile());
 		myHuman.setNumberSticksToTake(3);
 		myGame.play();
-		assertEquals(4,myGame.getPile().getSticksLeft());
+		assertEquals(4, myGame.getPile().getSticksLeft());
 	}
-	
+
 	@Test
 	public void testWhenComputerPlayed() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
@@ -40,6 +40,6 @@ class GameGetPile {
 		myComputer.setPileForThisTurn(myGame.getPile());
 		myComputer.setNumberSticksToTake();
 		myGame.play();
-		assertEquals(6,myGame.getPile().getSticksLeft());
+		assertEquals(6, myGame.getPile().getSticksLeft());
 	}
 }

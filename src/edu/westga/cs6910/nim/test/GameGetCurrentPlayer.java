@@ -18,7 +18,7 @@ class GameGetCurrentPlayer {
 		myGame.startNewGame(myHuman);
 		assertEquals(myHuman, myGame.getCurrentPlayer());
 	}
-	
+
 	@Test
 	public void testWhenComputerStartedFirst() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
@@ -27,7 +27,7 @@ class GameGetCurrentPlayer {
 		myGame.startNewGame(myComputer);
 		assertEquals(myComputer, myGame.getCurrentPlayer());
 	}
-	
+
 	@Test
 	public void testWhenHumanPlayedAndSwapped() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
@@ -39,7 +39,7 @@ class GameGetCurrentPlayer {
 		myGame.play();
 		assertEquals(myComputer, myGame.getCurrentPlayer());
 	}
-	
+
 	@Test
 	public void testWhenComputerPlayedAndSwapped() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");

@@ -21,7 +21,7 @@ class HumanPlayerTakeTurn {
 		myHuman.takeTurn();
 		assertEquals(4, myGame.getPile().getSticksLeft());
 	}
-	
+
 	@Test
 	public void testWhenPileIsAlreadyPlayed() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");

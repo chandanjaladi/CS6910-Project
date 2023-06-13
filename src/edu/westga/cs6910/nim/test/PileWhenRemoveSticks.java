@@ -12,21 +12,21 @@ class PileWhenRemoveSticks {
 	public void testShouldRemoveGivenNumberOfSticks() {
 		Pile myPile = new Pile(10);
 		myPile.removeSticks(2);
-		assertEquals(8,myPile.getSticksLeft());
+		assertEquals(8, myPile.getSticksLeft());
 	}
-	
+
 	@Test
 	public void testShouldRemoveGivenAnotherNumberOfSticks() {
 		Pile myPile = new Pile(10);
 		myPile.removeSticks(8);
-		assertEquals(2,myPile.getSticksLeft());
+		assertEquals(2, myPile.getSticksLeft());
 	}
-	
+
 	@Test
 	public void testShouldRemoveGivenOtherNumberOfSticks() {
 		Pile myPile = new Pile(10);
 		myPile.removeSticks(5);
-		assertEquals(5,myPile.getSticksLeft());
+		assertEquals(5, myPile.getSticksLeft());
 	}
 
 }

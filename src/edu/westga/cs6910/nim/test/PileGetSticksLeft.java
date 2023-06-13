@@ -11,18 +11,18 @@ class PileGetSticksLeft {
 	@Test
 	public void testWith1StickPileShouldHave1StickLeft() {
 		Pile oneStickPile = new Pile(1);
-		assertEquals(1,oneStickPile.getSticksLeft());
+		assertEquals(1, oneStickPile.getSticksLeft());
 	}
-	
+
 	@Test
 	public void testWith5StickPileShouldHave5SticksLeft() {
 		Pile fiveStickPile = new Pile(5);
-		assertEquals(5,fiveStickPile.getSticksLeft());
+		assertEquals(5, fiveStickPile.getSticksLeft());
 	}
 
 	@Test
 	public void testWith10StickPileShouldHave10SticksLeft() {
 		Pile tenStickPile = new Pile(10);
-		assertEquals(10,tenStickPile.getSticksLeft());
+		assertEquals(10, tenStickPile.getSticksLeft());
 	}
 }

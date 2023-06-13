@@ -15,9 +15,9 @@ class GameIsGameOver {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
 		ComputerPlayer myComputer = new ComputerPlayer();
 		Game myGame = new Game(myHuman, myComputer);
-		assertEquals(false,myGame.isGameOver());
+		assertEquals(false, myGame.isGameOver());
 	}
-	
+
 	@Test
 	public void testWhenGameIsOverAndHumanWon() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
@@ -35,7 +35,7 @@ class GameIsGameOver {
 		myGame.play();
 		assertEquals(true, myGame.isGameOver());
 	}
-	
+
 	@Test
 	public void testWhenGameIsOverAndComputerWon() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");

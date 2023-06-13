@@ -29,7 +29,7 @@ class GameGetSticksLeft {
 		myGame.play();
 		assertEquals(6, myGame.getSticksLeft());
 	}
-	
+
 	@Test
 	public void testWhenHumanPlayedFirst() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");

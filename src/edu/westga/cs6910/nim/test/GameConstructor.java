@@ -15,23 +15,23 @@ class GameConstructor {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
 		ComputerPlayer myComputer = new ComputerPlayer();
 		Game myGame = new Game(myHuman, myComputer);
-		assertEquals(" Pile size: 7",myGame.toString());
+		assertEquals(" Pile size: 7", myGame.toString());
 	}
-	
+
 	@Test
 	public void testWhenAnotherGameIsCreated() {
 		HumanPlayer myHuman = new HumanPlayer("Jaladi");
 		ComputerPlayer myComputer = new ComputerPlayer();
 		Game myGame = new Game(myHuman, myComputer);
-		assertEquals(" Pile size: 7",myGame.toString());
+		assertEquals(" Pile size: 7", myGame.toString());
 	}
-	
+
 	@Test
 	public void testWhenDifferentGameIsCreated() {
 		HumanPlayer myHuman = new HumanPlayer("India");
 		ComputerPlayer myComputer = new ComputerPlayer();
 		Game myGame = new Game(myHuman, myComputer);
-		assertEquals(" Pile size: 7",myGame.toString());
+		assertEquals(" Pile size: 7", myGame.toString());
 	}
 
 }

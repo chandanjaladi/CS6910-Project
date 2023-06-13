@@ -19,7 +19,7 @@ class ComputerPlayerSetPileForThisTurn {
 		myComputer.setPileForThisTurn(myGame.getPile());
 		assertEquals(7, myComputer.getPileForThisTurn().getSticksLeft());
 	}
-	
+
 	@Test
 	public void testWhenHumanPlayedFirst() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
