@@ -8,19 +8,28 @@ import edu.westga.cs6910.nim.model.ComputerPlayer;
 import edu.westga.cs6910.nim.model.Game;
 import edu.westga.cs6910.nim.model.HumanPlayer;
 
-class GameGetPile {
+class GameGetCurrentPlayer {
 
 	@Test
-	public void testWhenPileIsFull() {
+	public void testWhenHumanStartedFirst() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
 		ComputerPlayer myComputer = new ComputerPlayer();
 		Game myGame = new Game(myHuman, myComputer);
 		myGame.startNewGame(myHuman);
-		assertEquals(7,myGame.getPile().getSticksLeft());
+		assertEquals(myHuman, myGame.getCurrentPlayer());
 	}
-
+	
 	@Test
-	public void testWhenHumanPlayed() {
+	public void testWhenComputerStartedFirst() {
+		HumanPlayer myHuman = new HumanPlayer("Chandan");
+		ComputerPlayer myComputer = new ComputerPlayer();
+		Game myGame = new Game(myHuman, myComputer);
+		myGame.startNewGame(myComputer);
+		assertEquals(myComputer, myGame.getCurrentPlayer());
+	}
+	
+	@Test
+	public void testWhenHumanPlayedAndSwapped() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
 		ComputerPlayer myComputer = new ComputerPlayer();
 		Game myGame = new Game(myHuman, myComputer);
@@ -28,18 +37,19 @@ class GameGetPile {
 		myHuman.setPileForThisTurn(myGame.getPile());
 		myHuman.setNumberSticksToTake(3);
 		myGame.play();
-		assertEquals(4,myGame.getPile().getSticksLeft());
+		assertEquals(myComputer, myGame.getCurrentPlayer());
 	}
 	
 	@Test
-	public void testWhenComputerPlayed() {
+	public void testWhenComputerPlayedAndSwapped() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
 		ComputerPlayer myComputer = new ComputerPlayer();
 		Game myGame = new Game(myHuman, myComputer);
 		myGame.startNewGame(myComputer);
 		myComputer.setPileForThisTurn(myGame.getPile());
-		myComputer.setNumberSticksToTake();
+		myComputer.setNumberSticksToTake(1);
 		myGame.play();
-		assertEquals(6,myGame.getPile().getSticksLeft());
+		assertEquals(myHuman, myGame.getCurrentPlayer());
 	}
+
 }
