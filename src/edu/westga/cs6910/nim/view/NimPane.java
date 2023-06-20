@@ -7,11 +7,13 @@ import edu.westga.cs6910.nim.model.Game;
 import edu.westga.cs6910.nim.model.Player;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -26,13 +28,18 @@ import javafx.scene.layout.Pane;
 public class NimPane extends BorderPane {
 	private Game theGame;
 	private BorderPane pnContent;
+	private BorderPane anotherContent;
 	private HumanPane pnHumanPlayer;
 	private ComputerPane pnComputerPlayer;
 	private StatusPane pnGameInfo;
 	private Pane pnChooseFirstPlayer;
 	private MenuBar menuBar;
-	private Menu fileMenu;
+	private Menu gameMenu;
+	private Menu strategyMenu;
 	private MenuItem exitMenuItem;
+	private MenuItem cautiousMenuItem;
+	private MenuItem greedyMenuItem;
+	private MenuItem randomMenuItem;
 
 	/**
 	 * Creates a pane object to provide the view for the specified Game model
@@ -46,11 +53,16 @@ public class NimPane extends BorderPane {
 	public NimPane(Game theGame) {
 		this.theGame = theGame;
 		this.pnContent = new BorderPane();
-		this.menuBar = new MenuBar();
-		this.fileMenu = new Menu("Game");
-		this.exitMenuItem = new MenuItem("Exit");
-		this.fileMenu.getItems().addAll(this.exitMenuItem);
-		this.menuBar.getMenus().add(fileMenu);
+		this.anotherContent = new BorderPane();
+		this.menuAndMenuBarCreation();
+		this.exitMenuItem();
+		this.cautiousMenuItem();
+		this.greedyMenuItem();
+		this.randomMenuItem();
+		this.strategyMenu.getItems().addAll(this.cautiousMenuItem,this.greedyMenuItem,this.randomMenuItem);
+		
+		this.gameMenu.getItems().addAll(this.exitMenuItem);
+		this.menuBar.getMenus().addAll(this.gameMenu,this.strategyMenu);
 	    
 		
 		this.addFirstPlayerChooserPane(theGame);
@@ -61,7 +73,45 @@ public class NimPane extends BorderPane {
 		
 		this.computerBox();
 		this.setCenter(this.pnContent);
-		this.pnContent.setTop(this.menuBar);
+		this.anotherContent.setTop(this.menuBar);
+		this.pnContent.setTop(this.anotherContent);
+	}
+
+	private void menuAndMenuBarCreation() {
+		this.menuBar = new MenuBar();
+		this.gameMenu = new Menu("Game");
+		this.strategyMenu = new Menu("Strategy");
+	}
+
+	private void randomMenuItem() {
+		this.randomMenuItem = new MenuItem("Random");
+		this.randomMenuItem.setAccelerator(KeyCombination.keyCombination("Ctrl+R"));
+		this.randomMenuItem.setMnemonicParsing(true);
+		this.randomMenuItem.setText("_Random");
+	}
+
+	private void greedyMenuItem() {
+		this.greedyMenuItem = new MenuItem("Greedy");
+		this.greedyMenuItem.setAccelerator(KeyCombination.keyCombination("Ctrl+E"));
+		this.greedyMenuItem.setMnemonicParsing(true);
+		this.greedyMenuItem.setText("Gr_eedy");
+	}
+
+	private void cautiousMenuItem() {
+		this.cautiousMenuItem = new MenuItem("Cautious");
+		this.cautiousMenuItem.setAccelerator(KeyCombination.keyCombination("Ctrl+C"));
+		this.cautiousMenuItem.setMnemonicParsing(true);
+		this.cautiousMenuItem.setText("_Cautious");
+	}
+
+	private void exitMenuItem() {
+		this.exitMenuItem = new MenuItem("Exit");
+		this.exitMenuItem.setAccelerator(KeyCombination.keyCombination("Ctrl+X"));
+		this.exitMenuItem.setMnemonicParsing(true);
+		this.exitMenuItem.setText("E_xit");
+		this.exitMenuItem.setOnAction(event -> {
+            System.exit(0);
+        });
 	}
 
 	private void computerBox() {
@@ -93,7 +143,7 @@ public class NimPane extends BorderPane {
 		topBox.getStyleClass().add("pane-border");
 		this.pnChooseFirstPlayer = new NewGamePane(theGame);
 		topBox.getChildren().add(this.pnChooseFirstPlayer);
-		this.pnContent.setTop(topBox);
+		this.anotherContent.setBottom(topBox);
 
 	}
 
