@@ -1,9 +1,15 @@
 package edu.westga.cs6910.nim.view;
 
+import javax.swing.JFrame;
+import javax.swing.JMenuBar;
+
 import edu.westga.cs6910.nim.model.Game;
 import edu.westga.cs6910.nim.model.Player;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
@@ -24,6 +30,9 @@ public class NimPane extends BorderPane {
 	private ComputerPane pnComputerPlayer;
 	private StatusPane pnGameInfo;
 	private Pane pnChooseFirstPlayer;
+	private MenuBar menuBar;
+	private Menu fileMenu;
+	private MenuItem exitMenuItem;
 
 	/**
 	 * Creates a pane object to provide the view for the specified Game model
@@ -37,23 +46,46 @@ public class NimPane extends BorderPane {
 	public NimPane(Game theGame) {
 		this.theGame = theGame;
 		this.pnContent = new BorderPane();
+		this.menuBar = new MenuBar();
+		this.fileMenu = new Menu("Game");
+		this.exitMenuItem = new MenuItem("Exit");
+		this.fileMenu.getItems().addAll(this.exitMenuItem);
+		this.menuBar.getMenus().add(fileMenu);
+	    
+		
 		this.addFirstPlayerChooserPane(theGame);
-		HBox humanBox = new HBox();
-		humanBox.getStyleClass().add("pane-border");
-		this.pnHumanPlayer = new HumanPane(this.theGame);
-		humanBox.getChildren().addAll(this.pnHumanPlayer);
-		this.pnContent.setLeft(humanBox);
-		HBox statusBox = new HBox();
-		statusBox.getStyleClass().add("pane-border");
-		this.pnGameInfo = new StatusPane(this.theGame);
-		statusBox.getChildren().addAll(this.pnGameInfo);
-		this.pnContent.setCenter(statusBox);
+		
+		this.humanBox();
+		
+		this.statusBox();
+		
+		this.computerBox();
+		this.setCenter(this.pnContent);
+		this.pnContent.setTop(this.menuBar);
+	}
+
+	private void computerBox() {
 		HBox computerBox = new HBox();
 		computerBox.getStyleClass().add("pane-border");
 		this.pnComputerPlayer = new ComputerPane(this.theGame);
 		computerBox.getChildren().addAll(this.pnComputerPlayer);
 		this.pnContent.setRight(computerBox);
-		this.setCenter(this.pnContent);
+	}
+
+	private void statusBox() {
+		HBox statusBox = new HBox();
+		statusBox.getStyleClass().add("pane-border");
+		this.pnGameInfo = new StatusPane(this.theGame);
+		statusBox.getChildren().addAll(this.pnGameInfo);
+		this.pnContent.setCenter(statusBox);
+	}
+
+	private void humanBox() {
+		HBox humanBox = new HBox();
+		humanBox.getStyleClass().add("pane-border");
+		this.pnHumanPlayer = new HumanPane(this.theGame);
+		humanBox.getChildren().addAll(this.pnHumanPlayer);
+		this.pnContent.setLeft(humanBox);
 	}
 
 	private void addFirstPlayerChooserPane(Game theGame) {
