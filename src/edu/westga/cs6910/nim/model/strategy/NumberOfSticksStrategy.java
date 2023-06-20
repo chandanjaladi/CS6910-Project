@@ -4,7 +4,7 @@ public interface NumberOfSticksStrategy {
 	/**
 	 * 
 	 * @param sizeOfPile
-	 * @return
+	 * @return numberOsSticks to take out from pile
 	 */
 	int howManySticks(int sizeOfPile);
 }

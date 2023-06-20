@@ -1,13 +1,9 @@
 package edu.westga.cs6910.nim.view;
 
-import javax.swing.JFrame;
-import javax.swing.JMenuBar;
-
 import edu.westga.cs6910.nim.model.Game;
 import edu.westga.cs6910.nim.model.Player;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
