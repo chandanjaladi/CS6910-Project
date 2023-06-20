@@ -1,6 +1,5 @@
 package edu.westga.cs6910.nim.model;
 
-import edu.westga.cs6910.nim.model.strategy.CautiousStrategy;
 import edu.westga.cs6910.nim.model.strategy.NumberOfSticksStrategy;
 
 /**

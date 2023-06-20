@@ -56,7 +56,7 @@ public class ComputerPane extends GridPane implements InvalidationListener {
 		}
 		boolean myTurn = this.theGame.getCurrentPlayer() == this.theComputer;
 		if (!myTurn) {
-			this.lblNumberTaken.setText("Sticks taken: " + String.valueOf(this.theComputer.getSticksOnThisTurn()));
+			this.refresh();
 		}
 		if (this.theGame.getCurrentPlayer() == this.theComputer) {
 			this.setDisable(false);
@@ -64,6 +64,10 @@ public class ComputerPane extends GridPane implements InvalidationListener {
 			this.setDisable(true);
 		}
 
+	}
+	
+	private void refresh() {
+		this.lblNumberTaken.setText("Sticks taken: " + String.valueOf(this.theComputer.getSticksOnThisTurn()));
 	}
 
 	/*
@@ -83,6 +87,7 @@ public class ComputerPane extends GridPane implements InvalidationListener {
 				ComputerPane.this.theComputer.setPileForThisTurn(ComputerPane.this.theGame.getPile());
 				ComputerPane.this.theComputer.setNumberSticksToTake();
 				ComputerPane.this.theGame.play();
+				ComputerPane.this.refresh();
 			}
 
 		}

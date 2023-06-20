@@ -3,6 +3,7 @@ package edu.westga.cs6910.nim.view;
 import edu.westga.cs6910.nim.model.Game;
 import edu.westga.cs6910.nim.model.Player;
 import edu.westga.cs6910.nim.model.strategy.CautiousStrategy;
+import edu.westga.cs6910.nim.model.strategy.GreedyStrategy;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Menu;
@@ -92,6 +93,9 @@ public class NimPane extends BorderPane {
 		this.greedyMenuItem.setAccelerator(KeyCombination.keyCombination("Ctrl+E"));
 		this.greedyMenuItem.setMnemonicParsing(true);
 		this.greedyMenuItem.setText("Gr_eedy");
+		this.greedyMenuItem.setOnAction(event -> {
+			this.theGame.getComputerPlayer().setStrategy(new GreedyStrategy());
+		});
 	}
 
 	private void cautiousMenuItem() {
