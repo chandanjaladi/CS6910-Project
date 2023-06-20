@@ -19,4 +19,10 @@ public class HumanPlayer extends AbstractPlayer {
 	public HumanPlayer(String name) {
 		super(name);
 	}
+
+	@Override
+	public void setNumberSticksToTake() {
+		// TODO Auto-generated method stub
+		
+	}
 }

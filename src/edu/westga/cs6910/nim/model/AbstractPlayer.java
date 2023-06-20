@@ -58,9 +58,7 @@ public abstract class AbstractPlayer implements Player {
 	 * 
 	 * @see Player#setNumberSticksToTake()
 	 */
-	public void setNumberSticksToTake() {
-		this.setNumberSticksToTake(1);
-	}
+	public abstract void setNumberSticksToTake();
 
 	@Override
 	/**

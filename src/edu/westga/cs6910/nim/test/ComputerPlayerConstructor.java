@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import edu.westga.cs6910.nim.model.ComputerPlayer;
+import edu.westga.cs6910.nim.model.strategy.CautiousStrategy;
+import edu.westga.cs6910.nim.model.strategy.NumberOfSticksStrategy;
 
 /**
  * This is a JUnit test class for the ComputerPlayer constructor
@@ -19,7 +21,8 @@ class ComputerPlayerConstructor {
 	 */
 	@Test
 	public void testConstrucotrWtihName() {
-		ComputerPlayer myComputer = new ComputerPlayer();
+		NumberOfSticksStrategy strategy = new CautiousStrategy();
+		ComputerPlayer myComputer = new ComputerPlayer(strategy);
 		assertEquals("Simple computer", myComputer.getName());
 	}
 }

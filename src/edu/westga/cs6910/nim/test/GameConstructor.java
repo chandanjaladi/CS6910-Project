@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import edu.westga.cs6910.nim.model.ComputerPlayer;
 import edu.westga.cs6910.nim.model.Game;
 import edu.westga.cs6910.nim.model.HumanPlayer;
+import edu.westga.cs6910.nim.model.strategy.CautiousStrategy;
+import edu.westga.cs6910.nim.model.strategy.NumberOfSticksStrategy;
 
 /**
  * This JUnit is used to test the Game class constructor
@@ -23,7 +25,8 @@ class GameConstructor {
 	@Test
 	public void testWhenGameIsCreated() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
-		ComputerPlayer myComputer = new ComputerPlayer();
+		NumberOfSticksStrategy strategy = new CautiousStrategy();
+		ComputerPlayer myComputer = new ComputerPlayer(strategy);
 		Game myGame = new Game(myHuman, myComputer);
 		assertEquals(" Pile size: 7", myGame.toString());
 	}
@@ -34,7 +37,8 @@ class GameConstructor {
 	@Test
 	public void testWhenAnotherGameIsCreated() {
 		HumanPlayer myHuman = new HumanPlayer("Jaladi");
-		ComputerPlayer myComputer = new ComputerPlayer();
+		NumberOfSticksStrategy strategy = new CautiousStrategy();
+		ComputerPlayer myComputer = new ComputerPlayer(strategy);
 		Game myGame = new Game(myHuman, myComputer);
 		assertEquals(" Pile size: 7", myGame.toString());
 	}
@@ -45,7 +49,8 @@ class GameConstructor {
 	@Test
 	public void testWhenDifferentGameIsCreated() {
 		HumanPlayer myHuman = new HumanPlayer("India");
-		ComputerPlayer myComputer = new ComputerPlayer();
+		NumberOfSticksStrategy strategy = new CautiousStrategy();
+		ComputerPlayer myComputer = new ComputerPlayer(strategy);
 		Game myGame = new Game(myHuman, myComputer);
 		assertEquals(" Pile size: 7", myGame.toString());
 	}

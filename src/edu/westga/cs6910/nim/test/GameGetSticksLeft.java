@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import edu.westga.cs6910.nim.model.ComputerPlayer;
 import edu.westga.cs6910.nim.model.Game;
 import edu.westga.cs6910.nim.model.HumanPlayer;
+import edu.westga.cs6910.nim.model.strategy.CautiousStrategy;
+import edu.westga.cs6910.nim.model.strategy.NumberOfSticksStrategy;
 
 /**
  * This JUnit is used to test the sticks left
@@ -23,7 +25,8 @@ class GameGetSticksLeft {
 	@Test
 	public void testWhenAllSticksAreLeft() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
-		ComputerPlayer myComputer = new ComputerPlayer();
+		NumberOfSticksStrategy strategy = new CautiousStrategy();
+		ComputerPlayer myComputer = new ComputerPlayer(strategy);
 		Game myGame = new Game(myHuman, myComputer);
 		assertEquals(7, myGame.getSticksLeft());
 	}
@@ -34,7 +37,8 @@ class GameGetSticksLeft {
 	@Test
 	public void testWhenComputerPlayedFirst() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
-		ComputerPlayer myComputer = new ComputerPlayer();
+		NumberOfSticksStrategy strategy = new CautiousStrategy();
+		ComputerPlayer myComputer = new ComputerPlayer(strategy);
 		Game myGame = new Game(myHuman, myComputer);
 		myGame.startNewGame(myComputer);
 		myComputer.setPileForThisTurn(myGame.getPile());
@@ -49,7 +53,8 @@ class GameGetSticksLeft {
 	@Test
 	public void testWhenHumanPlayedFirst() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
-		ComputerPlayer myComputer = new ComputerPlayer();
+		NumberOfSticksStrategy strategy = new CautiousStrategy();
+		ComputerPlayer myComputer = new ComputerPlayer(strategy);
 		Game myGame = new Game(myHuman, myComputer);
 		myGame.startNewGame(myHuman);
 		myHuman.setPileForThisTurn(myGame.getPile());

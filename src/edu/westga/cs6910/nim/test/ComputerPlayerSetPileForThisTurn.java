@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import edu.westga.cs6910.nim.model.ComputerPlayer;
 import edu.westga.cs6910.nim.model.Game;
 import edu.westga.cs6910.nim.model.HumanPlayer;
+import edu.westga.cs6910.nim.model.strategy.CautiousStrategy;
+import edu.westga.cs6910.nim.model.strategy.NumberOfSticksStrategy;
 
 /**
  * This JUnit is used to test the setter Pile for this turn method
@@ -23,7 +25,8 @@ class ComputerPlayerSetPileForThisTurn {
 	@Test
 	public void testWhenComputerStartsPlaying() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
-		ComputerPlayer myComputer = new ComputerPlayer();
+		NumberOfSticksStrategy strategy = new CautiousStrategy();
+		ComputerPlayer myComputer = new ComputerPlayer(strategy);
 		Game myGame = new Game(myHuman, myComputer);
 		myGame.startNewGame(myComputer);
 		myComputer.setPileForThisTurn(myGame.getPile());
@@ -36,7 +39,8 @@ class ComputerPlayerSetPileForThisTurn {
 	@Test
 	public void testWhenHumanPlayedFirst() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
-		ComputerPlayer myComputer = new ComputerPlayer();
+		NumberOfSticksStrategy strategy = new CautiousStrategy();
+		ComputerPlayer myComputer = new ComputerPlayer(strategy);
 		Game myGame = new Game(myHuman, myComputer);
 		myGame.startNewGame(myHuman);
 		myHuman.setPileForThisTurn(myGame.getPile());

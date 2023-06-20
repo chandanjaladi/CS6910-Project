@@ -2,6 +2,7 @@ package edu.westga.cs6910.nim.view;
 
 import edu.westga.cs6910.nim.model.Game;
 import edu.westga.cs6910.nim.model.Player;
+import edu.westga.cs6910.nim.model.strategy.CautiousStrategy;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Menu;
@@ -98,6 +99,9 @@ public class NimPane extends BorderPane {
 		this.cautiousMenuItem.setAccelerator(KeyCombination.keyCombination("Ctrl+C"));
 		this.cautiousMenuItem.setMnemonicParsing(true);
 		this.cautiousMenuItem.setText("_Cautious");
+		this.cautiousMenuItem.setOnAction(event -> {
+			this.theGame.getComputerPlayer().setStrategy(new CautiousStrategy());
+		});
 	}
 
 	private void exitMenuItem() {

@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import edu.westga.cs6910.nim.model.ComputerPlayer;
 import edu.westga.cs6910.nim.model.Game;
 import edu.westga.cs6910.nim.model.HumanPlayer;
+import edu.westga.cs6910.nim.model.strategy.CautiousStrategy;
+import edu.westga.cs6910.nim.model.strategy.NumberOfSticksStrategy;
 
 /**
  * This JUnit is used to get the pile
@@ -23,7 +25,8 @@ class GameGetPile {
 	@Test
 	public void testWhenPileIsFull() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
-		ComputerPlayer myComputer = new ComputerPlayer();
+		NumberOfSticksStrategy strategy = new CautiousStrategy();
+		ComputerPlayer myComputer = new ComputerPlayer(strategy);
 		Game myGame = new Game(myHuman, myComputer);
 		myGame.startNewGame(myHuman);
 		assertEquals(7, myGame.getPile().getSticksLeft());
@@ -35,7 +38,8 @@ class GameGetPile {
 	@Test
 	public void testWhenHumanPlayed() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
-		ComputerPlayer myComputer = new ComputerPlayer();
+		NumberOfSticksStrategy strategy = new CautiousStrategy();
+		ComputerPlayer myComputer = new ComputerPlayer(strategy);
 		Game myGame = new Game(myHuman, myComputer);
 		myGame.startNewGame(myHuman);
 		myHuman.setPileForThisTurn(myGame.getPile());
@@ -50,7 +54,8 @@ class GameGetPile {
 	@Test
 	public void testWhenComputerPlayed() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
-		ComputerPlayer myComputer = new ComputerPlayer();
+		NumberOfSticksStrategy strategy = new CautiousStrategy();
+		ComputerPlayer myComputer = new ComputerPlayer(strategy);
 		Game myGame = new Game(myHuman, myComputer);
 		myGame.startNewGame(myComputer);
 		myComputer.setPileForThisTurn(myGame.getPile());

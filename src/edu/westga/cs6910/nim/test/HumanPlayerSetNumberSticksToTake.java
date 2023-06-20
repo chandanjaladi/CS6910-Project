@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import edu.westga.cs6910.nim.model.ComputerPlayer;
 import edu.westga.cs6910.nim.model.Game;
 import edu.westga.cs6910.nim.model.HumanPlayer;
+import edu.westga.cs6910.nim.model.strategy.CautiousStrategy;
+import edu.westga.cs6910.nim.model.strategy.NumberOfSticksStrategy;
 
 /**
  * This JUnit is used to test the human player number of sticks to take
@@ -23,7 +25,8 @@ class HumanPlayerSetNumberSticksToTake {
 	@Test
 	public void testWhenHumanPlayedFirstWith3Sticks() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
-		ComputerPlayer myComputer = new ComputerPlayer();
+		NumberOfSticksStrategy strategy = new CautiousStrategy();
+		ComputerPlayer myComputer = new ComputerPlayer(strategy);
 		Game myGame = new Game(myHuman, myComputer);
 		myGame.startNewGame(myHuman);
 		myHuman.setPileForThisTurn(myGame.getPile());
@@ -38,7 +41,8 @@ class HumanPlayerSetNumberSticksToTake {
 	@Test
 	public void testWhenHumanPlayedFirstWith2Sticks() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
-		ComputerPlayer myComputer = new ComputerPlayer();
+		NumberOfSticksStrategy strategy = new CautiousStrategy();
+		ComputerPlayer myComputer = new ComputerPlayer(strategy);
 		Game myGame = new Game(myHuman, myComputer);
 		myGame.startNewGame(myHuman);
 		myHuman.setPileForThisTurn(myGame.getPile());
@@ -53,7 +57,8 @@ class HumanPlayerSetNumberSticksToTake {
 	@Test
 	public void testWhenHumanPlayedFirstWith1Stick() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
-		ComputerPlayer myComputer = new ComputerPlayer();
+		NumberOfSticksStrategy strategy = new CautiousStrategy();
+		ComputerPlayer myComputer = new ComputerPlayer(strategy);
 		Game myGame = new Game(myHuman, myComputer);
 		myGame.startNewGame(myHuman);
 		myHuman.setPileForThisTurn(myGame.getPile());
@@ -68,7 +73,8 @@ class HumanPlayerSetNumberSticksToTake {
 	@Test
 	public void testWhenComputerPlayedFirst() {
 		HumanPlayer myHuman = new HumanPlayer("Chandan");
-		ComputerPlayer myComputer = new ComputerPlayer();
+		NumberOfSticksStrategy strategy = new CautiousStrategy();
+		ComputerPlayer myComputer = new ComputerPlayer(strategy);
 		Game myGame = new Game(myHuman, myComputer);
 		myGame.startNewGame(myComputer);
 		myComputer.setPileForThisTurn(myGame.getPile());
