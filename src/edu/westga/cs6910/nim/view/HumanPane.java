@@ -49,7 +49,6 @@ public class HumanPane extends GridPane implements InvalidationListener {
 		this.cmbNumberToTake = new ComboBox<Integer>();
 		this.cmbNumberToTake.getItems().addAll(1, 2, 3);
 		this.add(this.cmbNumberToTake, 1, 1);
-
 		this.btnTakeSticks = new Button("Take Sticks");
 		this.btnTakeSticks.setOnAction(new TakeTurnListener());
 		this.add(this.btnTakeSticks, 0, 3);
