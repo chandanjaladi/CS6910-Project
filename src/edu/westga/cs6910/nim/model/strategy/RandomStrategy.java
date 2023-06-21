@@ -20,6 +20,8 @@ public class RandomStrategy implements NumberOfSticksStrategy {
 			return (int) (Math.random() * 2 + 1);
 		} else if (sizeOfPile == 2) {
 			return 1;
+		} else if (sizeOfPile == 1) {
+			return 1;
 		}
 
 		return (int) (Math.random() * 3 + 1);

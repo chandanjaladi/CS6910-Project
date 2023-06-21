@@ -72,45 +72,45 @@ public class NimPane extends BorderPane {
 
 	private void menuAndMenuBarCreation() {
 		this.menuBar = new MenuBar();
-		this.gameMenu = new Menu("Game");
-		this.strategyMenu = new Menu("Strategy");
+		this.gameMenu = new Menu("_Game");
+		this.gameMenu.setMnemonicParsing(true);
+		this.strategyMenu = new Menu("_Strategy");
+		this.strategyMenu.setMnemonicParsing(true);
 	}
 
 	private void randomMenuItem() {
-		this.randomMenuItem = new MenuItem("Random");
-		this.randomMenuItem.setAccelerator(KeyCombination.keyCombination("Ctrl+R"));
+		this.randomMenuItem = new MenuItem("_Random");
 		this.randomMenuItem.setMnemonicParsing(true);
-		this.randomMenuItem.setText("_Random");
+		this.randomMenuItem.setAccelerator(KeyCombination.keyCombination("Ctrl+R"));
+		
 		this.randomMenuItem.setOnAction(event -> {
 			this.theGame.getComputerPlayer().setStrategy(new RandomStrategy());
 		});
 	}
 
 	private void greedyMenuItem() {
-		this.greedyMenuItem = new MenuItem("Greedy");
-		this.greedyMenuItem.setAccelerator(KeyCombination.keyCombination("Ctrl+E"));
+		this.greedyMenuItem = new MenuItem("Gr_eedy");
 		this.greedyMenuItem.setMnemonicParsing(true);
-		this.greedyMenuItem.setText("Gr_eedy");
+		this.greedyMenuItem.setAccelerator(KeyCombination.keyCombination("Ctrl+E"));
+		
 		this.greedyMenuItem.setOnAction(event -> {
 			this.theGame.getComputerPlayer().setStrategy(new GreedyStrategy());
 		});
 	}
 
 	private void cautiousMenuItem() {
-		this.cautiousMenuItem = new MenuItem("Cautious");
-		this.cautiousMenuItem.setAccelerator(KeyCombination.keyCombination("Ctrl+C"));
+		this.cautiousMenuItem = new MenuItem("_Cautious");
 		this.cautiousMenuItem.setMnemonicParsing(true);
-		this.cautiousMenuItem.setText("_Cautious");
+		this.cautiousMenuItem.setAccelerator(KeyCombination.keyCombination("Ctrl+C"));
 		this.cautiousMenuItem.setOnAction(event -> {
 			this.theGame.getComputerPlayer().setStrategy(new CautiousStrategy());
 		});
 	}
 
 	private void exitMenuItem() {
-		this.exitMenuItem = new MenuItem("Exit");
-		this.exitMenuItem.setAccelerator(KeyCombination.keyCombination("Ctrl+X"));
+		this.exitMenuItem = new MenuItem("E_xit");
 		this.exitMenuItem.setMnemonicParsing(true);
-		this.exitMenuItem.setText("E_xit");
+		this.exitMenuItem.setAccelerator(KeyCombination.keyCombination("Ctrl+X"));
 		this.exitMenuItem.setOnAction(event -> {
 			System.exit(0);
 		});
