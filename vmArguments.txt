@@ -1,1 +1,4 @@
 --module-path "${eclipse_home}/javafx-sdk-18.0.2/lib" --add-modules javafx.controls,javafx.fxml
+
+Checkstyle
+https://www.westga.edu/~morsega/cs6311/UWG_checks1000.xml
