@@ -11,20 +11,20 @@ class CautiousStrategyHowManySticks {
 	@Test
 	public void testWhenPileIsFull() {
 		CautiousStrategy cautious = new CautiousStrategy();
-		assertEquals(1,cautious.howManySticks(10));
+		assertEquals(1, cautious.howManySticks(10));
 	}
-	
+
 	@Test
 	public void testWhenPileIsOne() {
 		CautiousStrategy cautious = new CautiousStrategy();
-		assertEquals(1,cautious.howManySticks(1));
+		assertEquals(1, cautious.howManySticks(1));
 	}
-	
+
 	@Test
 	public void testWhenPileIsZero() {
 		CautiousStrategy cautious = new CautiousStrategy();
 		assertThrows(IllegalArgumentException.class, () -> {
 			cautious.howManySticks(0);
-	    });
+		});
 	}
 }

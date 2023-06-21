@@ -58,18 +58,12 @@ public class NimPane extends BorderPane {
 		this.cautiousMenuItem();
 		this.greedyMenuItem();
 		this.randomMenuItem();
-		this.strategyMenu.getItems().addAll(this.cautiousMenuItem,this.greedyMenuItem,this.randomMenuItem);
-		
+		this.strategyMenu.getItems().addAll(this.cautiousMenuItem, this.greedyMenuItem, this.randomMenuItem);
 		this.gameMenu.getItems().addAll(this.exitMenuItem);
-		this.menuBar.getMenus().addAll(this.gameMenu,this.strategyMenu);
-	    
-		
+		this.menuBar.getMenus().addAll(this.gameMenu, this.strategyMenu);
 		this.addFirstPlayerChooserPane(theGame);
-		
 		this.humanBox();
-		
 		this.statusBox();
-		
 		this.computerBox();
 		this.setCenter(this.pnContent);
 		this.anotherContent.setTop(this.menuBar);
@@ -118,8 +112,8 @@ public class NimPane extends BorderPane {
 		this.exitMenuItem.setMnemonicParsing(true);
 		this.exitMenuItem.setText("E_xit");
 		this.exitMenuItem.setOnAction(event -> {
-            System.exit(0);
-        });
+			System.exit(0);
+		});
 	}
 
 	private void computerBox() {

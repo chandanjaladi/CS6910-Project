@@ -65,7 +65,7 @@ public class ComputerPane extends GridPane implements InvalidationListener {
 		}
 
 	}
-	
+
 	private void refresh() {
 		this.lblNumberTaken.setText("Sticks taken: " + String.valueOf(this.theComputer.getSticksOnThisTurn()));
 	}

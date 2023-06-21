@@ -16,6 +16,7 @@ public class ComputerPlayer extends AbstractPlayer {
 	/**
 	 * Creates a new ComputerPlayer with the specified name.
 	 * 
+	 * @param strategy The updated/selected strategy by the computer player
 	 */
 	public ComputerPlayer(NumberOfSticksStrategy strategy) {
 		super(NAME);
@@ -24,12 +25,16 @@ public class ComputerPlayer extends AbstractPlayer {
 
 	@Override
 	public void setNumberSticksToTake() {
-		// TODO Auto-generated method stub
 		this.setNumberSticksToTake(this.strategy.howManySticks(this.getPileForThisTurn().getSticksLeft()));
 	}
-	
+
+	/**
+	 * This method is used to set the strategy
+	 * 
+	 * @param strategy The updated/selected strategy by the computer player
+	 */
 	public void setStrategy(NumberOfSticksStrategy strategy) {
 		this.strategy = strategy;
 	}
-	
+
 }

@@ -22,7 +22,5 @@ public class HumanPlayer extends AbstractPlayer {
 
 	@Override
 	public void setNumberSticksToTake() {
-		// TODO Auto-generated method stub
-		
 	}
 }
