@@ -65,6 +65,10 @@ public class ComputerPane extends GridPane implements InvalidationListener {
 		}
 
 	}
+	
+	public void hideSticksTakenLabel() {
+		this.lblNumberTaken.setVisible(false);
+	}
 
 	private void refresh() {
 		this.lblNumberTaken.setText("Sticks taken: " + String.valueOf(this.theComputer.getSticksOnThisTurn()));
@@ -83,6 +87,7 @@ public class ComputerPane extends GridPane implements InvalidationListener {
 		 */
 		@Override
 		public void handle(ActionEvent arg0) {
+			ComputerPane.this.lblNumberTaken.setVisible(true);
 			if (!ComputerPane.this.theGame.isGameOver()) {
 				ComputerPane.this.theComputer.setPileForThisTurn(ComputerPane.this.theGame.getPile());
 				ComputerPane.this.theComputer.setNumberSticksToTake();

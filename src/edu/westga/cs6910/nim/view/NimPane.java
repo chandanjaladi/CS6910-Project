@@ -5,6 +5,8 @@ import edu.westga.cs6910.nim.model.Player;
 import edu.westga.cs6910.nim.model.strategy.CautiousStrategy;
 import edu.westga.cs6910.nim.model.strategy.GreedyStrategy;
 import edu.westga.cs6910.nim.model.strategy.RandomStrategy;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Menu;
@@ -24,7 +26,7 @@ import javafx.scene.layout.Pane;
  * @author Chandan Jaladi
  * @version 06/06/2023
  */
-public class NimPane extends BorderPane {
+public class NimPane extends BorderPane implements InvalidationListener{
 	private Game theGame;
 	private BorderPane pnContent;
 	private BorderPane anotherContent;
@@ -39,6 +41,8 @@ public class NimPane extends BorderPane {
 	private MenuItem cautiousMenuItem;
 	private MenuItem greedyMenuItem;
 	private MenuItem randomMenuItem;
+	private MenuItem restartMenuItem;
+	private Player restartingPlayer;
 
 	/**
 	 * Creates a pane object to provide the view for the specified Game model
@@ -58,8 +62,9 @@ public class NimPane extends BorderPane {
 		this.cautiousMenuItem();
 		this.greedyMenuItem();
 		this.randomMenuItem();
+		this.restartMenuItem();
 		this.strategyMenu.getItems().addAll(this.cautiousMenuItem, this.greedyMenuItem, this.randomMenuItem);
-		this.gameMenu.getItems().addAll(this.exitMenuItem);
+		this.gameMenu.getItems().addAll(this.restartMenuItem, this.exitMenuItem);
 		this.menuBar.getMenus().addAll(this.gameMenu, this.strategyMenu);
 		this.addFirstPlayerChooserPane(theGame);
 		this.humanBox();
@@ -82,7 +87,7 @@ public class NimPane extends BorderPane {
 		this.randomMenuItem = new MenuItem("_Random");
 		this.randomMenuItem.setMnemonicParsing(true);
 		this.randomMenuItem.setAccelerator(KeyCombination.keyCombination("Ctrl+R"));
-		
+
 		this.randomMenuItem.setOnAction(event -> {
 			this.theGame.getComputerPlayer().setStrategy(new RandomStrategy());
 		});
@@ -92,7 +97,7 @@ public class NimPane extends BorderPane {
 		this.greedyMenuItem = new MenuItem("Gr_eedy");
 		this.greedyMenuItem.setMnemonicParsing(true);
 		this.greedyMenuItem.setAccelerator(KeyCombination.keyCombination("Ctrl+E"));
-		
+
 		this.greedyMenuItem.setOnAction(event -> {
 			this.theGame.getComputerPlayer().setStrategy(new GreedyStrategy());
 		});
@@ -114,6 +119,38 @@ public class NimPane extends BorderPane {
 		this.exitMenuItem.setOnAction(event -> {
 			System.exit(0);
 		});
+	}
+
+	private void restartMenuItem() {
+		this.restartMenuItem = new MenuItem("Res_tart");
+		this.restartMenuItem.setMnemonicParsing(true);
+		this.restartMenuItem.setAccelerator(KeyCombination.keyCombination("Ctrl+T"));
+		this.restartMenuItem.setDisable(true);
+		this.restartMenuItem.setOnAction(event -> {
+			this.restartDecision(this.restartingPlayer);
+		});
+	}
+	
+	private void restartDecision(Player player) {
+//		if(player.equals(NewGamePane.this.theComputer)) {
+//			
+//		}
+		//this.theGame = new Game(new );
+		this.theGame.startNewGame(this.restartingPlayer);
+		this.pnGameInfo.invalidated(theGame);
+		this.pnComputerPlayer.hideSticksTakenLabel();
+		this.pnComputerPlayer.invalidated(theGame);
+		
+		//this.theGame.play();
+		//System.out.print(this.restartingPlayer.getName());
+		//this.statusPane.setStatusLabel(this.theGame.toString());
+		
+	}
+	
+	@Override
+	public void invalidated(Observable arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	private void computerBox() {
@@ -196,6 +233,8 @@ public class NimPane extends BorderPane {
 				NimPane.this.pnComputerPlayer.setDisable(false);
 				NimPane.this.pnChooseFirstPlayer.setDisable(true);
 				NimPane.this.theGame.startNewGame(NewGamePane.this.theComputer);
+				NimPane.this.restartMenuItem.setDisable(false);
+				NimPane.this.restartingPlayer = NewGamePane.this.theComputer;
 			}
 		}
 
@@ -211,7 +250,11 @@ public class NimPane extends BorderPane {
 			public void handle(ActionEvent event) {
 				NimPane.this.pnChooseFirstPlayer.setDisable(true);
 				NimPane.this.theGame.startNewGame(NewGamePane.this.theHuman);
+				NimPane.this.restartMenuItem.setDisable(false);
+				NimPane.this.restartingPlayer = NewGamePane.this.theHuman;
 			}
 		}
 	}
+
+	
 }

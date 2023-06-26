@@ -76,6 +76,7 @@ public class Game implements Observable {
 	public void play() {
 		if (!this.isGameOver()) {
 			this.currentPlayerObject.get().takeTurn();
+			
 			this.swapWhoseTurn();
 		}
 
