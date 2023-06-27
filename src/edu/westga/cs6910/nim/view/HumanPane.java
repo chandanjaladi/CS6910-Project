@@ -1,13 +1,20 @@
 package edu.westga.cs6910.nim.view;
 
+import java.util.Optional;
+
 import edu.westga.cs6910.nim.model.Game;
 import edu.westga.cs6910.nim.model.HumanPlayer;
+import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
@@ -24,6 +31,7 @@ public class HumanPane extends GridPane implements InvalidationListener {
 
 	private HumanPlayer theHuman;
 	private Game theGame;
+	private boolean isRestarted;
 
 	/**
 	 * Creates a new HumanPane that observes the specified game.
@@ -34,6 +42,7 @@ public class HumanPane extends GridPane implements InvalidationListener {
 	 */
 	public HumanPane(Game theGame) {
 		this.theGame = theGame;
+		this.isRestarted = false;
 		this.theGame.addListener(this);
 
 		this.theHuman = this.theGame.getHumanPlayer();
@@ -55,6 +64,10 @@ public class HumanPane extends GridPane implements InvalidationListener {
 		this.setDisable(true);
 	}
 
+	public void setRestarted(boolean condition) {
+		this.isRestarted = condition;
+	}
+
 	@Override
 	public void invalidated(Observable observable) {
 		if (this.theGame.isGameOver()) {
@@ -62,6 +75,10 @@ public class HumanPane extends GridPane implements InvalidationListener {
 			return;
 		}
 
+//		if (this.isRestarted) {
+//			this.setDisable(false);
+//		}
+		
 		boolean myTurn = this.theGame.getCurrentPlayer() == this.theHuman;
 
 		if (myTurn) {
@@ -70,7 +87,7 @@ public class HumanPane extends GridPane implements InvalidationListener {
 
 		this.setDisable(!myTurn);
 	}
-
+	
 	/**
 	 * Clears the numbers in the combo box, then adds back in all the valid numbers
 	 * so the user can't try to take more sticks than allowed.

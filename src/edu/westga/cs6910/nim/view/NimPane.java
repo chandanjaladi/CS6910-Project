@@ -5,10 +5,9 @@ import edu.westga.cs6910.nim.model.Player;
 import edu.westga.cs6910.nim.model.strategy.CautiousStrategy;
 import edu.westga.cs6910.nim.model.strategy.GreedyStrategy;
 import edu.westga.cs6910.nim.model.strategy.RandomStrategy;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -26,7 +25,7 @@ import javafx.scene.layout.Pane;
  * @author Chandan Jaladi
  * @version 06/06/2023
  */
-public class NimPane extends BorderPane implements InvalidationListener{
+public class NimPane extends BorderPane {
 	private Game theGame;
 	private BorderPane pnContent;
 	private BorderPane anotherContent;
@@ -130,27 +129,15 @@ public class NimPane extends BorderPane implements InvalidationListener{
 			this.restartDecision(this.restartingPlayer);
 		});
 	}
-	
+
 	private void restartDecision(Player player) {
-//		if(player.equals(NewGamePane.this.theComputer)) {
-//			
-//		}
-		//this.theGame = new Game(new );
 		this.theGame.startNewGame(this.restartingPlayer);
 		this.pnGameInfo.invalidated(theGame);
 		this.pnComputerPlayer.hideSticksTakenLabel();
+		this.pnComputerPlayer.setRestarted(true);
+		this.pnHumanPlayer.setRestarted(true);
 		this.pnComputerPlayer.invalidated(theGame);
-		
-		//this.theGame.play();
-		//System.out.print(this.restartingPlayer.getName());
-		//this.statusPane.setStatusLabel(this.theGame.toString());
-		
-	}
-	
-	@Override
-	public void invalidated(Observable arg0) {
-		// TODO Auto-generated method stub
-		
+		this.pnHumanPlayer.invalidated(theGame);
 	}
 
 	private void computerBox() {
@@ -192,6 +179,7 @@ public class NimPane extends BorderPane implements InvalidationListener{
 	private final class NewGamePane extends GridPane {
 		private RadioButton radHumanPlayer;
 		private RadioButton radComputerPlayer;
+		private Button randomButton;
 
 		private Game theGame;
 		private Player theHuman;
@@ -199,6 +187,7 @@ public class NimPane extends BorderPane implements InvalidationListener{
 
 		private NewGamePane(Game theGame) {
 			this.theGame = theGame;
+			this.randomButton = new Button("Select randomly");
 
 			this.theHuman = this.theGame.getHumanPlayer();
 			this.theComputer = this.theGame.getComputerPlayer();
@@ -213,11 +202,29 @@ public class NimPane extends BorderPane implements InvalidationListener{
 			this.radHumanPlayer.setOnAction(new HumanFirstListener());
 			this.radComputerPlayer = new RadioButton(this.theComputer.getName() + " first");
 			this.radComputerPlayer.setOnAction(new ComputerFirstListener());
+			this.randomButton.setOnAction(event -> {
+				RadioButton selectedRadioButton = this.selectRandomly();
+				if(selectedRadioButton != null) {
+					selectedRadioButton.fire();
+				}
+			});
 			ToggleGroup group = new ToggleGroup();
 			this.radHumanPlayer.setToggleGroup(group);
 			this.radComputerPlayer.setToggleGroup(group);
 			this.add(this.radHumanPlayer, 3, 3);
 			this.add(this.radComputerPlayer, 3, 4);
+			this.add(randomButton, 5, 3);
+			
+		}
+
+		private RadioButton selectRandomly() {
+			int random = (int) (Math.random() * 2 + 1);
+			if(random == 1) {
+				return this.radHumanPlayer;
+			}
+			else {
+				return this.radComputerPlayer;
+			}
 		}
 
 		/*
@@ -256,5 +263,4 @@ public class NimPane extends BorderPane implements InvalidationListener{
 		}
 	}
 
-	
 }
