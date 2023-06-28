@@ -122,9 +122,9 @@ public class NimPane extends BorderPane {
 	}
 
 	private void restartMenuItem() {
-		this.restartMenuItem = new MenuItem("Res_tart");
+		this.restartMenuItem = new MenuItem("_New Game");
 		this.restartMenuItem.setMnemonicParsing(true);
-		this.restartMenuItem.setAccelerator(KeyCombination.keyCombination("Ctrl+T"));
+		this.restartMenuItem.setAccelerator(KeyCombination.keyCombination("Ctrl+N"));
 		this.restartMenuItem.setDisable(true);
 		this.restartMenuItem.setOnAction(event -> {
 			this.restartDecision();
