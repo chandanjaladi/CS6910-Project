@@ -43,7 +43,12 @@ public class StatusPane extends GridPane implements InvalidationListener {
 	public void invalidated(Observable observable) {
 		this.setStatusLabel(this.theGame.toString());
 	}
-	
+
+	/**
+	 * This method is used to set the status label of the game
+	 * 
+	 * @param string has the status of the game
+	 */
 	public void setStatusLabel(String string) {
 		this.lblStatus.setText(string);
 	}

@@ -108,6 +108,14 @@ public class Game implements Observable {
 	public Player getCurrentPlayer() {
 		return this.currentPlayerObject.getValue();
 	}
+	
+	/**
+	 * This is a setter used to set the current player
+	 * @param player is the player who will take his turn 
+	 */
+	public void setCurrentPlayer(Player player) {
+		this.currentPlayerObject.setValue(player);
+	}
 
 	/**
 	 * Returns the number of sticks remaining in the pile.
@@ -125,6 +133,13 @@ public class Game implements Observable {
 	 */
 	public boolean isGameOver() {
 		return this.thePile.getSticksLeft() <= 1;
+	}
+	
+	/**
+	 * This method is used to reset the sticks 
+	 */
+	public void resetSticksLeft() {
+		this.thePile = new Pile(INITIAL_PILE_SIZE);
 	}
 
 	/**

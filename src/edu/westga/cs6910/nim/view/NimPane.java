@@ -65,10 +65,11 @@ public class NimPane extends BorderPane {
 		this.strategyMenu.getItems().addAll(this.cautiousMenuItem, this.greedyMenuItem, this.randomMenuItem);
 		this.gameMenu.getItems().addAll(this.restartMenuItem, this.exitMenuItem);
 		this.menuBar.getMenus().addAll(this.gameMenu, this.strategyMenu);
-		this.addFirstPlayerChooserPane(theGame);
+
 		this.humanBox();
 		this.statusBox();
 		this.computerBox();
+		this.addFirstPlayerChooserPane(theGame);
 		this.setCenter(this.pnContent);
 		this.anotherContent.setTop(this.menuBar);
 		this.pnContent.setTop(this.anotherContent);
@@ -126,18 +127,27 @@ public class NimPane extends BorderPane {
 		this.restartMenuItem.setAccelerator(KeyCombination.keyCombination("Ctrl+T"));
 		this.restartMenuItem.setDisable(true);
 		this.restartMenuItem.setOnAction(event -> {
-			this.restartDecision(this.restartingPlayer);
+			this.restartDecision();
 		});
 	}
 
-	private void restartDecision(Player player) {
-		this.theGame.startNewGame(this.restartingPlayer);
-		this.pnGameInfo.invalidated(theGame);
-		this.pnComputerPlayer.hideSticksTakenLabel();
-		this.pnComputerPlayer.setRestarted(true);
-		this.pnHumanPlayer.setRestarted(true);
-		this.pnComputerPlayer.invalidated(theGame);
-		this.pnHumanPlayer.invalidated(theGame);
+	private void restartDecision() {
+
+		if (this.theGame.isGameOver()) {
+			this.theGame.setCurrentPlayer(this.restartingPlayer);
+		}
+		this.theGame.resetSticksLeft();
+		this.pnHumanPlayer.resetNumberToTakeComboBox();
+		this.pnGameInfo.invalidated(this.theGame);
+
+		if (this.restartingPlayer == this.theGame.getHumanPlayer()) {
+			this.theGame.startNewGame(this.theGame.getHumanPlayer());
+			this.pnHumanPlayer.setDisable(false);
+
+		} else if (this.restartingPlayer == this.theGame.getComputerPlayer()) {
+			this.pnComputerPlayer.takeComputerTurn();
+			this.pnComputerPlayer.setDisable(false);
+		}
 	}
 
 	private void computerBox() {
@@ -204,7 +214,7 @@ public class NimPane extends BorderPane {
 			this.radComputerPlayer.setOnAction(new ComputerFirstListener());
 			this.randomButton.setOnAction(event -> {
 				RadioButton selectedRadioButton = this.selectRandomly();
-				if(selectedRadioButton != null) {
+				if (selectedRadioButton != null) {
 					selectedRadioButton.fire();
 				}
 			});
@@ -213,16 +223,15 @@ public class NimPane extends BorderPane {
 			this.radComputerPlayer.setToggleGroup(group);
 			this.add(this.radHumanPlayer, 3, 3);
 			this.add(this.radComputerPlayer, 3, 4);
-			this.add(randomButton, 5, 3);
-			
+			this.add(this.randomButton, 5, 3);
+
 		}
 
 		private RadioButton selectRandomly() {
 			int random = (int) (Math.random() * 2 + 1);
-			if(random == 1) {
+			if (random == 1) {
 				return this.radHumanPlayer;
-			}
-			else {
+			} else {
 				return this.radComputerPlayer;
 			}
 		}
@@ -237,11 +246,12 @@ public class NimPane extends BorderPane {
 			 * click in the computerPlayerButton.
 			 */
 			public void handle(ActionEvent arg0) {
-				NimPane.this.pnComputerPlayer.setDisable(false);
-				NimPane.this.pnChooseFirstPlayer.setDisable(true);
-				NimPane.this.theGame.startNewGame(NewGamePane.this.theComputer);
 				NimPane.this.restartMenuItem.setDisable(false);
 				NimPane.this.restartingPlayer = NewGamePane.this.theComputer;
+				NimPane.this.pnComputerPlayer.setDisable(false);
+				NimPane.this.pnChooseFirstPlayer.setDisable(true);
+				NimPane.this.theGame.getComputerPlayer().setPileForThisTurn(NimPane.this.theGame.getPile());
+				NimPane.this.theGame.setCurrentPlayer(NewGamePane.this.theComputer);
 			}
 		}
 

@@ -42,7 +42,7 @@ public class Pile {
 	public int getSticksLeft() {
 		return this.sticks;
 	}
-
+	
 	/**
 	 * Returns a String representation of this Pile.
 	 * 
