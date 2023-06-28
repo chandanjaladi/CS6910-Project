@@ -1,0 +1,6 @@
+The Nim Game
+
+The recent major updates for this game are "New Game" button which can start a new game at any point in the game by remembering the selected player in the begining and again starting with him and also remembering the strategy set by the computer player.
+And the next major update is the computer player do not need any human interaction to take turn.
+
+The New Game option is set in the Game menu.
