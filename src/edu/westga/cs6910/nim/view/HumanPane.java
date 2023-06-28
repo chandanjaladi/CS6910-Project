@@ -96,6 +96,7 @@ public class HumanPane extends GridPane implements InvalidationListener {
 		@Override
 		public void handle(ActionEvent event) {
 			if (!HumanPane.this.theGame.isGameOver()) {
+				
 				HumanPane.this.theHuman.setPileForThisTurn(HumanPane.this.theGame.getPile());
 				HumanPane.this.theHuman.setNumberSticksToTake((int) HumanPane.this.cmbNumberToTake.getValue());
 				HumanPane.this.theGame.play();

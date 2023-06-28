@@ -48,7 +48,6 @@ public class ComputerPane extends GridPane implements InvalidationListener {
 			this.setDisable(true);
 			return;
 		}
-
 		boolean myTurn = this.theGame.getCurrentPlayer() == this.theComputer;
 		if (!myTurn) {
 			this.refreshPane();

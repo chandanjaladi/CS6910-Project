@@ -65,7 +65,6 @@ public class NimPane extends BorderPane {
 		this.strategyMenu.getItems().addAll(this.cautiousMenuItem, this.greedyMenuItem, this.randomMenuItem);
 		this.gameMenu.getItems().addAll(this.restartMenuItem, this.exitMenuItem);
 		this.menuBar.getMenus().addAll(this.gameMenu, this.strategyMenu);
-
 		this.humanBox();
 		this.statusBox();
 		this.computerBox();
